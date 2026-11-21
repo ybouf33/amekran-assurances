@@ -1,0 +1,297 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-serif-brand: var(--font-display-serif), Georgia, serif;
+}
+
+/* Arabic locale: dedicated Arabic typeface + RTL polish */
+html[lang='ar'] body {
+  font-family: var(--font-arabic), var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+html[lang='ar'] [style*='--font-serif-brand'] {
+  font-family: var(--font-display-serif), var(--font-arabic), Georgia, serif;
+}
+
+@layer utilities {
+  .bg-navy-header {
+    background: linear-gradient(105deg, #061430 0%, #0B214A 48%, #0E2B5E 76%, #071736 100%);
+  }
+
+  .bg-gold-pill {
+    background: linear-gradient(180deg, #F8D366 0%, #E7B94B 52%, #CF9522 100%);
+  }
+
+  .bg-gold-pill-hover {
+    background: linear-gradient(180deg, #FBE085 0%, #ECC25B 52%, #D99F2B 100%);
+  }
+
+  .bg-gold-divider {
+    background: linear-gradient(90deg, rgba(220, 163, 42, 0) 0%, #D99E26 50%, rgba(220, 163, 42, 0) 100%);
+  }
+
+  /* Section-title rules: thin gold hairlines that fade towards the page
+     edges and stay solid where they meet the heading. Mirrored in RTL. */
+  .heading-rule {
+    flex: 1 1 0%;
+    min-width: 2.5rem;
+    max-width: 250px;
+    height: 2px;
+    border-radius: 9999px;
+    background: linear-gradient(
+      90deg,
+      rgba(217, 158, 38, 0) 0%,
+      rgba(217, 158, 38, 0.16) 30%,
+      rgba(217, 158, 38, 0.78) 72%,
+      #d99e26 100%
+    );
+  }
+
+  .heading-rule--end {
+    background: linear-gradient(
+      270deg,
+      rgba(217, 158, 38, 0) 0%,
+      rgba(217, 158, 38, 0.16) 30%,
+      rgba(217, 158, 38, 0.78) 72%,
+      #d99e26 100%
+    );
+  }
+
+  [dir='rtl'] .heading-rule {
+    background: linear-gradient(
+      270deg,
+      rgba(217, 158, 38, 0) 0%,
+      rgba(217, 158, 38, 0.16) 30%,
+      rgba(217, 158, 38, 0.78) 72%,
+      #d99e26 100%
+    );
+  }
+
+  [dir='rtl'] .heading-rule--end {
+    background: linear-gradient(
+      90deg,
+      rgba(217, 158, 38, 0) 0%,
+      rgba(217, 158, 38, 0.16) 30%,
+      rgba(217, 158, 38, 0.78) 72%,
+      #d99e26 100%
+    );
+  }
+
+  .shadow-card-soft {
+    box-shadow: 0 8px 24px -6px rgba(11, 30, 64, 0.09), 0 2px 6px -1px rgba(11, 30, 64, 0.04);
+  }
+
+  .shadow-card-featured {
+    box-shadow: 0 10px 28px -6px rgba(217, 158, 38, 0.28), 0 4px 12px -2px rgba(11, 30, 64, 0.08);
+  }
+
+  /* Contact-card corner wave: resting state (also the no-JS fallback and the
+     reduced-motion state). GSAP overrides this inline to play the intro. */
+  .contact-corner-wave {
+    transform: scaleX(0.68);
+    transform-origin: right bottom;
+  }
+
+  [dir='rtl'] .contact-corner-wave {
+    transform-origin: left bottom;
+  }
+
+  /* Light sweep travelling across the gold wave fill of the active card */
+  .wave-shimmer {
+    background-image: linear-gradient(
+      100deg,
+      rgba(255, 255, 255, 0) 20%,
+      rgba(255, 255, 255, 0.55) 50%,
+      rgba(255, 255, 255, 0) 80%
+    );
+    background-size: 65% 100%;
+    background-repeat: no-repeat;
+    animation: wave-shimmer 2.8s linear infinite;
+  }
+
+  @keyframes wave-shimmer {
+    0% {
+      background-position: -90% 0;
+    }
+    100% {
+      background-position: 210% 0;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .wave-shimmer {
+      animation: none;
+      background-image: none;
+    }
+  }
+
+  /* ── Footer page-load intro ─────────────────────────────────────────────
+     On open (desktop only), the footer takes the full page height: its height animates
+     from 100vh down to its resting height, so its top edge slides from the top of
+     the page into its place at the bottom. On mobile, it stays directly at its resting
+     height without dragging a background box across the viewport. */
+  @keyframes footer-intro-slide {
+    from {
+      height: 100vh;
+    }
+  }
+
+  @keyframes footer-intro-content {
+    from {
+      opacity: 0;
+      transform: translateY(130%);
+    }
+  }
+
+  /* The real footer's gold ribbon starts FLAT across the top of the page
+     while the footer is full-screen, then morphs into its resting wave shape
+     as the footer settles down ("waves to the bottom"). The navy body follows
+     just under it, so the footer stays one solid block at every moment. */
+  @keyframes footer-intro-wave-gold {
+    from {
+      d: path(
+        'M 0 0 C 130 0, 250 0, 400 0 C 550 0, 635 0, 720 0 C 805 0, 890 0, 1040 0 C 1190 0, 1310 0, 1440 0 L 1440 124 L 0 124 Z'
+      );
+    }
+    to {
+      d: path(
+        'M 0 12 C 130 58, 250 66, 400 62 C 550 58, 635 49, 720 49 C 805 49, 890 58, 1040 62 C 1190 66, 1310 58, 1440 12 L 1440 124 L 0 124 Z'
+      );
+    }
+  }
+
+  @keyframes footer-intro-wave-accent {
+    from {
+      d: path(
+        'M 0 4 C 135 4, 260 4, 410 4 C 555 4, 638 4, 720 4 C 802 4, 885 4, 1030 4 C 1180 4, 1305 4, 1440 4 L 1440 124 L 0 124 Z'
+      );
+    }
+    to {
+      d: path(
+        'M 0 24 C 135 64, 260 69, 410 64 C 555 60, 638 52, 720 52 C 802 52, 885 60, 1030 64 C 1180 69, 1305 64, 1440 24 L 1440 124 L 0 124 Z'
+      );
+    }
+  }
+
+  @keyframes footer-intro-wave-navy {
+    from {
+      d: path(
+        'M 0 8 C 135 8, 265 8, 415 8 C 560 8, 640 8, 720 8 C 800 8, 880 8, 1025 8 C 1175 8, 1305 8, 1440 8 L 1440 124 L 0 124 Z'
+      );
+    }
+    to {
+      d: path(
+        'M 0 32 C 135 67, 265 71, 415 65 C 560 60, 640 53, 720 53 C 800 53, 880 60, 1025 65 C 1175 71, 1305 67, 1440 32 L 1440 124 L 0 124 Z'
+      );
+    }
+  }
+
+  /* Splash logo: pops in softly at open, then hides as the footer lands. */
+  @keyframes footer-intro-logo-pop {
+    from {
+      opacity: 0;
+      transform: scale(0.86);
+    }
+  }
+
+  @keyframes footer-intro-logo-out {
+    to {
+      opacity: 0;
+      transform: translateY(18px) scale(0.92);
+    }
+  }
+
+  @keyframes footer-intro-ring-splash {
+    from {
+      opacity: 0.55;
+      transform: scale(1);
+    }
+    to {
+      opacity: 0;
+      transform: scale(1.65);
+    }
+  }
+
+  .site-footer-content {
+    position: relative;
+    z-index: 40;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    /* Desktop splash curtain: 0.9s hold, then footer slides smoothly into resting place */
+    @media (min-width: 1024px) {
+      .site-footer-root {
+        animation: footer-intro-slide 1.15s cubic-bezier(0.65, 0, 0.35, 1) 0.9s
+          both;
+      }
+
+      .site-footer-wave-gold {
+        animation: footer-intro-wave-gold 1.15s cubic-bezier(0.65, 0, 0.35, 1)
+          0.9s both;
+      }
+
+      .site-footer-wave-accent {
+        animation: footer-intro-wave-accent 1.15s cubic-bezier(0.65, 0, 0.35, 1)
+          0.9s both;
+      }
+
+      .site-footer-wave-navy {
+        animation: footer-intro-wave-navy 1.15s cubic-bezier(0.65, 0, 0.35, 1)
+          0.9s both;
+      }
+
+      .site-footer-content {
+        animation: footer-intro-content 0.85s cubic-bezier(0.22, 1, 0.36, 1)
+          2.25s both;
+      }
+
+      .site-footer-intro-crest,
+      .site-footer-intro-wordmark,
+      .site-footer-intro-partner {
+        animation: footer-intro-logo-pop 0.5s cubic-bezier(0.22, 1, 0.36, 1)
+          0.1s both;
+      }
+
+      .site-footer-intro-partner {
+        animation-delay: 0.34s;
+      }
+
+      .site-footer-intro-logo {
+        animation: footer-intro-logo-out 0.35s ease-in 1.7s both;
+      }
+
+      .site-footer-intro-ring {
+        animation: footer-intro-ring-splash 1s ease-out 0.25s infinite;
+      }
+
+      .site-footer-intro-ring-late {
+        animation-delay: 0.75s;
+      }
+    }
+
+    /* Mobile: footer sits directly at its compact resting height with zero background color behind it */
+    @media (max-width: 1023px) {
+      .site-footer-root {
+        height: 88px !important;
+        background: transparent !important;
+      }
+
+      .site-footer-intro-logo {
+        display: none !important;
+      }
+
+      .site-footer-content {
+        opacity: 1 !important;
+        transform: none !important;
+        animation: none !important;
+      }
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .site-footer-intro-logo {
+      display: none;
+    }
+  }
+}

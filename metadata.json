@@ -1,0 +1,6 @@
+{
+  "name": "Amekran Assurances",
+  "description": "Agent Général d'Assurance à Tanger — Une protection complète pour chaque étape de votre vie et de votre activité.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
