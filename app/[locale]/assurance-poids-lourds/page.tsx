@@ -12,22 +12,22 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   if (locale === 'ar') {
     return {
-      title: 'تأمين الشاحنات الثقيلة والأساطيل بطنجة | وكيل عام RMA - AMEKRAN',
+      title: 'تأمين الشاحنات الثقيلة والأساطيل بطنجة | وكيل عام AMEKRAN - AMEKRAN',
       description:
-        'حلول تأمين الشاحنات، الجرارات، المقطورات وأساطيل النقل الدولي TIR انطلاقاً من ميناء طنجة المتوسط مع البطاقة الخضراء الدولية عبر RMA.',
+        'حلول تأمين الشاحنات، الجرارات، المقطورات وأساطيل النقل الدولي TIR انطلاقاً من ميناء طنجة المتوسط مع البطاقة الخضراء الدولية عبر AMEKRAN.',
     };
   }
   if (locale === 'en') {
     return {
-      title: 'Heavy Truck & Fleet Insurance in Tangier | RMA Agent AMEKRAN',
+      title: 'Heavy Truck & Fleet Insurance in Tangier | AMEKRAN Agent AMEKRAN',
       description:
-        'Benchmark heavy commercial vehicle and fleet cover out of Tanger Med: tractors, trailers, rigids and international TIR Green Card with RMA.',
+        'Benchmark heavy commercial vehicle and fleet cover out of Tanger Med: tractors, trailers, rigids and international TIR Green Card with AMEKRAN.',
     };
   }
   return {
-    title: 'Assurance Poids Lourds & Flottes à Tanger | Agent Général RMA AMEKRAN',
+    title: 'Assurance Poids Lourds & Flottes à Tanger | AMEKRAN Assurances AMEKRAN',
     description:
-      'La référence pour l’assurance des transporteurs routiers, tracteurs, semi-remorques et flottes TIR au départ de Tanger Med avec Carte Verte RMA.',
+      'La référence pour l’assurance des transporteurs routiers, tracteurs, semi-remorques et flottes TIR au départ de Tanger Med avec Carte Verte AMEKRAN.',
   };
 }
 

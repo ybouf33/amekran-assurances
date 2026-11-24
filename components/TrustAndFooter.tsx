@@ -6,7 +6,6 @@ import { Handshake, MapPin, ShieldCheck, Users } from 'lucide-react';
 import crestImg from '@/src/assets/images/amekran_lion_crest_1794661933343.png';
 import { DESKTOP_RESTING_WAVES, MOBILE_RESTING_WAVES } from '@/lib/waves';
 import { t3, type Language } from '@/lib/insurance';
-import { RMA_URL } from '@/lib/rma';
 
 interface TrustAndFooterProps {
   lang: Language;
@@ -16,16 +15,16 @@ export function AmekranFooterBar({ lang }: { lang: Language }) {
   return (
     <footer className="relative z-30 px-3 sm:px-4 pb-1.5 sm:pb-2 pt-0.5 lg:pt-1 lg:pb-2.5">
       <div className="max-w-[1340px] mx-auto flex flex-row items-center justify-between gap-1.5 sm:gap-4 text-white">
-        {/* Brand Logo & RMA Lockup */}
+        {/* Brand Logo & AMEKRAN Lockup */}
         <div className="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
-          <div className="relative w-5 h-5 sm:w-8 sm:h-8 rounded-full overflow-hidden border border-[#F4CB64]/80 bg-[#08193B] shrink-0 shadow-sm">
+          <div className="relative w-7 h-7 sm:w-8 sm:h-8 shrink-0">
             <Image
               src={crestImg}
               alt="Amekran Assurances"
               fill
-              sizes="32px"
+              sizes="36px"
               referrerPolicy="no-referrer"
-              className="object-cover"
+              className="object-contain drop-shadow-sm"
             />
           </div>
           <div className="flex items-baseline gap-1">
@@ -45,33 +44,19 @@ export function AmekranFooterBar({ lang }: { lang: Language }) {
             className="hidden sm:block h-4 sm:h-5 w-px bg-white/20"
           />
 
-          {/* RMA — parent company lockup, linked to rmaassurance.com */}
-          <a
-            href={RMA_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="RMA Assurance — Agent Général"
-            className="flex items-center gap-1.5 rounded-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F4CB64]"
-          >
-            <span className="inline-flex items-center rounded bg-white px-1 sm:px-1.5 py-[2px] sm:py-[3px] shadow-sm">
+          {/* RMA Agent Général */}
+          <div className="flex items-center gap-1.5">
+            <span className="inline-flex items-center rounded-md bg-white px-1.5 sm:px-2 py-[3px] sm:py-1 shadow-sm">
               <Image
-                src="/rma-logo.png"
-                alt="RMA Assurance"
-                width={318}
-                height={84}
-                sizes="72px"
-                className="h-2.5 sm:h-3.5 w-auto"
+                src="/rma-agent-general-logo.png"
+                alt="RMA Royale Marocaine d'Assurance - Agent Général"
+                width={300}
+                height={100}
+                sizes="100px"
+                className="h-4 sm:h-5 w-auto object-contain"
               />
             </span>
-            <span className="hidden lg:flex flex-col leading-tight text-start">
-              <span className="text-[8px] font-semibold uppercase tracking-[0.18em] text-[#F2CA63]">
-                Agent Général
-              </span>
-              <span className="text-[9.5px] font-semibold text-white/85">
-                RMA Assurance
-              </span>
-            </span>
-          </a>
+          </div>
         </div>
 
         {/* Copyright */}
@@ -172,59 +157,34 @@ export default function TrustAndFooter({
       id="site-footer"
       className="site-footer-root fixed bottom-0 inset-x-0 z-[45] bg-transparent pointer-events-none overflow-hidden h-[88px] sm:h-[102px] lg:h-[118px] flex flex-col justify-end"
     >
-      {/* Intro: the brand logo centered on the full-page footer, with a small
-          splash ring pulsing behind the crest; it hides as the footer settles
-          into its place (desktop only) */}
+      {/* Intro: Full brand logo centered on the splash page (both mobile and desktop) */}
       <div
         aria-hidden="true"
-        className="site-footer-intro-logo hidden lg:flex pointer-events-none absolute inset-x-0 top-0 z-30 h-[100vh] flex-col items-center justify-center gap-5"
+        className="site-footer-intro-logo pointer-events-none fixed inset-0 z-[60] flex flex-col items-center justify-center gap-3 px-4 select-none"
       >
-        <div className="relative flex items-center justify-center">
-          {/* little splash rings */}
-          <span className="site-footer-intro-ring absolute h-24 w-24 rounded-full border-2 border-[#F4CB64]" />
-          <span
-            aria-hidden="true"
-            className="site-footer-intro-ring site-footer-intro-ring-late absolute h-24 w-24 rounded-full border border-[#F4CB64]/70"
+        <div className="site-footer-intro-crest relative w-52 h-52 sm:w-64 sm:h-64 lg:w-76 lg:h-76">
+          <Image
+            src={crestImg}
+            alt="Amekran Assurances"
+            fill
+            priority
+            sizes="(max-width: 640px) 208px, 304px"
+            referrerPolicy="no-referrer"
+            className="object-contain drop-shadow-[0_0_46px_rgba(244,203,100,0.5)]"
           />
-          <div className="site-footer-intro-crest relative h-24 w-24 overflow-hidden rounded-full border-2 border-[#F4CB64] bg-[#08193B] shadow-[0_0_46px_rgba(244,203,100,0.36)]">
-            <Image
-              src={crestImg}
-              alt=""
-              fill
-              priority
-              sizes="96px"
-              referrerPolicy="no-referrer"
-              className="object-cover"
-            />
-          </div>
-        </div>
-        <div className="site-footer-intro-wordmark flex flex-col items-center">
-          <span
-            className="text-[28px] font-bold leading-none tracking-[0.2em] text-white sm:text-[34px]"
-            style={{ fontFamily: 'var(--font-serif-brand)' }}
-          >
-            AMEKRAN
-          </span>
-          <span className="mt-3 text-[10px] font-semibold uppercase tracking-[0.42em] text-[#F2CA63] sm:text-[11px]">
-            ASSURANCES
-          </span>
         </div>
 
-        {/* Parent brand — RMA Assurance */}
-        <div className="site-footer-intro-partner flex items-center gap-2.5">
-          <span className="text-[8.5px] font-semibold uppercase tracking-[0.3em] text-white/70 sm:text-[9.5px]">
-            Agent Général
-          </span>
-          <span aria-hidden="true" className="h-4 w-px bg-white/25" />
-          <span className="inline-flex items-center rounded-md bg-white px-2 py-1 shadow-[0_2px_14px_rgba(0,0,0,0.28)]">
+        {/* Partner — RMA Agent Général */}
+        <div className="site-footer-intro-partner flex items-center justify-center mt-2.5">
+          <span className="inline-flex items-center rounded-lg bg-white px-3 py-1.5 shadow-[0_2px_14px_rgba(0,0,0,0.28)]">
             <Image
-              src="/rma-logo.png"
-              alt=""
-              width={318}
-              height={84}
+              src="/rma-agent-general-logo.png"
+              alt="RMA Royale Marocaine d'Assurance - Agent Général"
+              width={300}
+              height={100}
               priority
-              sizes="96px"
-              className="h-5 w-auto sm:h-6"
+              sizes="120px"
+              className="h-6 sm:h-7.5 w-auto object-contain"
             />
           </span>
         </div>

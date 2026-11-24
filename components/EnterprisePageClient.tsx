@@ -11,7 +11,6 @@ import {
   Building2,
   Check,
   ChevronRight,
-  ExternalLink,
   FileText,
   Globe,
   HardHat,
@@ -50,11 +49,7 @@ import {
   type EnterpriseIconKey,
   type EnterpriseServiceId,
 } from '@/lib/enterprise';
-import {
-  RMA_ENTERPRISE_URL,
-  RMA_PHONE,
-  RMA_URL,
-} from '@/lib/rma';
+import { AMEKRAN_PHONE } from '@/lib/rma';
 
 import heroBusinessImg from '@/src/assets/images/hero_business_tangier_amekran_1794666689451.jpg';
 import heroWorkplaceImg from '@/src/assets/images/hero_workplace_tangier_amekran_1794666686780.jpg';
@@ -237,15 +232,15 @@ export default function EnterprisePageClient({
                     </span>
                   </nav>
 
-                  {/* Official RMA Agent Badge */}
+                  {/* Official AMEKRAN Agent Badge */}
                   <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-[#D99E26]/40 backdrop-blur-xs text-[11.5px] font-bold text-[#F4CB64]">
                     <ShieldCheck className="w-3.5 h-3.5 text-[#F4CB64] shrink-0" />
                     <span>
                       {t3(
                         lang,
-                        'AMEKRAN Assurances · Agent Général Agréé RMA à Tanger',
-                        'AMEKRAN Assurances · Certified RMA General Agent in Tangier',
-                        'أمكران للتأمينات · الوكيل العام المعتمد لـ RMA بطنجة'
+                        'AMEKRAN Assurances · Assureur à Tanger',
+                        'AMEKRAN Assurances · Insurer in Tangier',
+                        'أمكران للتأمينات · شركة تأمين بطنجة'
                       )}
                     </span>
                   </div>
@@ -287,16 +282,6 @@ export default function EnterprisePageClient({
                         )}
                       </span>
                     </button>
-
-                    <a
-                      href={service.rmaHref}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-white/[0.08] hover:bg-white/[0.16] text-white text-[13.5px] sm:text-[14px] font-semibold border border-white/25 backdrop-blur-xs transition-all duration-150 hover:-translate-y-0.5 cursor-pointer min-h-[44px] whitespace-nowrap"
-                    >
-                      <span>{t3(lang, 'Espace Entreprises RMA', 'RMA Business Portal', 'فضاء الشركات RMA')}</span>
-                      <ExternalLink className="w-3.5 h-3.5 shrink-0 text-[#F4CB64]" />
-                    </a>
                   </div>
                 </div>
               </div>
@@ -312,11 +297,11 @@ export default function EnterprisePageClient({
           <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 py-6 grid grid-cols-2 lg:grid-cols-4 gap-6 divide-y sm:divide-y-0 sm:divide-x rtl:sm:divide-x-reverse divide-[#E8EEF7]">
             {service.stats.concat([
               {
-                value: RMA_PHONE,
+                value: AMEKRAN_PHONE,
                 label: {
-                  fr: 'Numéro d’assistance et déclaration RMA 24h/7j',
-                  en: 'RMA 24/7 assistance & claims call center',
-                  ar: 'رقم المساعدة والتصريح بـ RMA على مدار 24/7',
+                  fr: 'Numéro d’assistance et déclaration AMEKRAN 24h/7j',
+                  en: 'AMEKRAN 24/7 assistance & claims call center',
+                  ar: 'رقم المساعدة والتصريح بـ AMEKRAN على مدار 24/7',
                 },
               },
             ]).map((item) => (
@@ -349,9 +334,9 @@ export default function EnterprisePageClient({
               <h2 className="text-[24px] sm:text-[32px] font-extrabold text-[#0B1E40] text-center tracking-tight">
                 {t3(
                   lang,
-                  `Les garanties complètes RMA · ${service.title.fr}`,
-                  `Complete RMA Cover · ${service.title.en}`,
-                  `الضمانات الشاملة لـ RMA · ${service.title.ar}`
+                  `Les garanties complètes AMEKRAN · ${service.title.fr}`,
+                  `Complete AMEKRAN Cover · ${service.title.en}`,
+                  `الضمانات الشاملة لـ AMEKRAN · ${service.title.ar}`
                 )}
               </h2>
               <div
@@ -411,9 +396,9 @@ export default function EnterprisePageClient({
               <h2 className="text-[24px] sm:text-[32px] font-extrabold text-[#0B1E40] tracking-tight">
                 {t3(
                   lang,
-                  'Comment AMEKRAN Assurances déploie votre contrat RMA',
-                  'How AMEKRAN Assurances rolls out your RMA policy',
-                  'كيف تطبق أمكران للتأمينات عقد RMA الخاص بكم'
+                  'Comment AMEKRAN Assurances déploie votre contrat AMEKRAN',
+                  'How AMEKRAN Assurances rolls out your AMEKRAN policy',
+                  'كيف تطبق أمكران للتأمينات عقد AMEKRAN الخاص بكم'
                 )}
               </h2>
             </div>
@@ -441,9 +426,9 @@ export default function EnterprisePageClient({
           </div>
         </section>
 
-        {/* 6. Agency & Official RMA Connection Split */}
+        {/* 6. Agency & Official AMEKRAN Connection Split */}
         <section
-          aria-label={t3(lang, 'Partenariat officiel RMA', 'Official RMA Partnership', 'الشراكة الرسمية مع RMA')}
+          aria-label={t3(lang, 'Partenariat officiel AMEKRAN', 'Official AMEKRAN Partnership', 'الشراكة الرسمية مع AMEKRAN')}
           className="bg-white py-14 lg:py-18 border-b border-[#E5ECF6]"
         >
           <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
@@ -461,14 +446,14 @@ export default function EnterprisePageClient({
             <div className="lg:col-span-7 flex flex-col justify-center space-y-6">
               <div>
                 <p className="text-[12px] font-extrabold uppercase tracking-[0.14em] text-[#B57D14] mb-2">
-                  {t3(lang, 'Agent Général Agréé', 'Certified General Agent', 'وكيل عام معتمد')}
+                  {t3(lang, 'Assureur Agréé', 'Licensed Insurer', 'شركة تأمين معتمدة')}
                 </p>
                 <h2 className="text-[24px] sm:text-[32px] font-extrabold text-[#0B1E40] leading-tight tracking-tight">
                   {t3(
                     lang,
-                    'La solidité nationale de RMA, l’écoute d’un cabinet conseil à Tanger',
-                    'National strength of RMA, dedicated counsel in Tangier',
-                    'قوة RMA على الصعيد الوطني، وخبرة مكتب استشارة بطنجة'
+                    'La solidité nationale de AMEKRAN, l’écoute d’un cabinet conseil à Tanger',
+                    'National strength of AMEKRAN, dedicated counsel in Tangier',
+                    'قوة AMEKRAN على الصعيد الوطني، وخبرة مكتب استشارة بطنجة'
                   )}
                 </h2>
               </div>
@@ -476,9 +461,9 @@ export default function EnterprisePageClient({
               <p className="text-[14.5px] text-[#455A7D] leading-relaxed">
                 {t3(
                   lang,
-                  'AMEKRAN Assurances agit en qualité d’Agent Général exclusif de RMA Assurance (Royale Marocaine d’Assurance) à Tanger. Vos contrats bénéficient de la solidité financière du premier assureur marocain, avec une gestion directe de vos dossiers et sinistres en agence sans intermédiaire inutile.',
-                  'AMEKRAN Assurances operates as an exclusive General Agent of RMA Assurance in Tangier. Your policies enjoy the financial strength of Morocco’s premier insurer, with direct local claims management and support.',
-                  'تعمل أمكران للتأمينات بصفة الوكيل العام الحصري لشركة RMA للتأمين بطنجة. تستفيد عقودكم من الملاءة المالية للمؤمّن الأول بالمغرب مع تدبير محلي مباشر لملفاتكم وحوادثكم بالوكالة.'
+                  'AMEKRAN Assurances agit en qualité d’Agent Général exclusif de AMEKRAN Assurances (AMEKRAN Assurances) à Tanger. Vos contrats bénéficient de la solidité financière du premier assureur marocain, avec une gestion directe de vos dossiers et sinistres en agence sans intermédiaire inutile.',
+                  'AMEKRAN Assurances is your insurer in Tangier. Your policies benefit from direct local claims management and a dedicated team, without unnecessary intermediaries.',
+                  'أمكران للتأمينات هي شركة تأمينكم بطنجة. تستفيد عقودكم من تدبير محلي مباشر لملفاتكم وحوادثكم بالوكالة، مع فريق مخصص ودون وسطاء غير ضروريين.'
                 )}
               </p>
 
@@ -493,15 +478,6 @@ export default function EnterprisePageClient({
                   </span>
                   <ArrowRight className="w-4 h-4 rtl:rotate-180" aria-hidden="true" />
                 </button>
-                <a
-                  href={RMA_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-[#DCE5F2] hover:border-[#D99E26] text-[#0B1E40] text-[14px] font-bold transition-colors min-h-[44px]"
-                >
-                  <span>{t3(lang, 'Portail officiel RMA Assurance', 'Official RMA Assurance portal', 'البوابة الرسمية لـ RMA Assurance')}</span>
-                  <ExternalLink className="w-4 h-4 text-[#D99E26]" />
-                </a>
               </div>
             </div>
           </div>
@@ -531,9 +507,9 @@ export default function EnterprisePageClient({
               <p className="text-[15px] sm:text-[16.5px] text-[#3F5373] font-normal">
                 {t3(
                   lang,
-                  `Règles et conditions RMA pour l’assurance ${service.title.fr}`,
-                  `RMA terms and conditions for ${service.title.en}`,
-                  `شروط وقواعد RMA لتأمين ${service.title.ar}`
+                  `Règles et conditions AMEKRAN pour l’assurance ${service.title.fr}`,
+                  `AMEKRAN terms and conditions for ${service.title.en}`,
+                  `شروط وقواعد AMEKRAN لتأمين ${service.title.ar}`
                 )}
               </p>
             </div>

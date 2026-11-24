@@ -219,6 +219,21 @@ html[lang='ar'] [style*='--font-serif-brand'] {
   }
 
   @media (prefers-reduced-motion: no-preference) {
+    /* Full brand logo pops in at open and fades out softly on both desktop and mobile */
+    .site-footer-intro-crest,
+    .site-footer-intro-partner {
+      animation: footer-intro-logo-pop 0.5s cubic-bezier(0.22, 1, 0.36, 1)
+        0.1s both;
+    }
+
+    .site-footer-intro-partner {
+      animation-delay: 0.34s;
+    }
+
+    .site-footer-intro-logo {
+      animation: footer-intro-logo-out 0.35s ease-in 1.7s both;
+    }
+
     /* Desktop splash curtain: 0.9s hold, then footer slides smoothly into resting place */
     @media (min-width: 1024px) {
       .site-footer-root {
@@ -245,29 +260,6 @@ html[lang='ar'] [style*='--font-serif-brand'] {
         animation: footer-intro-content 0.85s cubic-bezier(0.22, 1, 0.36, 1)
           2.25s both;
       }
-
-      .site-footer-intro-crest,
-      .site-footer-intro-wordmark,
-      .site-footer-intro-partner {
-        animation: footer-intro-logo-pop 0.5s cubic-bezier(0.22, 1, 0.36, 1)
-          0.1s both;
-      }
-
-      .site-footer-intro-partner {
-        animation-delay: 0.34s;
-      }
-
-      .site-footer-intro-logo {
-        animation: footer-intro-logo-out 0.35s ease-in 1.7s both;
-      }
-
-      .site-footer-intro-ring {
-        animation: footer-intro-ring-splash 1s ease-out 0.25s infinite;
-      }
-
-      .site-footer-intro-ring-late {
-        animation-delay: 0.75s;
-      }
     }
 
     /* Mobile: footer sits directly at its compact resting height with zero background color behind it */
@@ -275,10 +267,6 @@ html[lang='ar'] [style*='--font-serif-brand'] {
       .site-footer-root {
         height: 88px !important;
         background: transparent !important;
-      }
-
-      .site-footer-intro-logo {
-        display: none !important;
       }
 
       .site-footer-content {

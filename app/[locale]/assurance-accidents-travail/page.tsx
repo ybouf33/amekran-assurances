@@ -12,22 +12,22 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   if (locale === 'ar') {
     return {
-      title: 'تأمين حوادث الشغل بطنجة (القانون 18-12) | وكيل عام RMA - AMEKRAN',
+      title: 'تأمين حوادث الشغل بطنجة (القانون 18-12) | وكيل عام AMEKRAN - AMEKRAN',
       description:
-        'التأمين القانوني الإلزامي لحوادث الشغل والأمراض المهنية لأرباب العمل والشركات في طنجة طبقاً للقانون 18-12 عبر RMA Assurance.',
+        'التأمين القانوني الإلزامي لحوادث الشغل والأمراض المهنية لأرباب العمل والشركات في طنجة طبقاً للقانون 18-12 عبر AMEKRAN Assurances.',
     };
   }
   if (locale === 'en') {
     return {
-      title: 'Workplace Accident Insurance in Tangier (Law 18-12) | RMA Agent AMEKRAN',
+      title: 'Workplace Accident Insurance in Tangier (Law 18-12) | AMEKRAN Agent AMEKRAN',
       description:
-        'Statutory employer liability and employee protection under Moroccan Law 18-12: medical care, sick leave allowances and disability pensions with RMA.',
+        'Statutory employer liability and employee protection under Moroccan Law 18-12: medical care, sick leave allowances and disability pensions with AMEKRAN.',
     };
   }
   return {
-    title: 'Assurance Accidents du Travail à Tanger (Loi 18-12) | Agent Général RMA AMEKRAN',
+    title: 'Assurance Accidents du Travail à Tanger (Loi 18-12) | AMEKRAN Assurances AMEKRAN',
     description:
-      'Couverture obligatoire des salariés selon la loi 18-12 et le Code du Travail : frais médicaux, indemnités journalières et rentes légales avec RMA Assurance.',
+      'Couverture obligatoire des salariés selon la loi 18-12 et le Code du Travail : frais médicaux, indemnités journalières et rentes légales avec AMEKRAN Assurances.',
   };
 }
 

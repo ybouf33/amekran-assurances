@@ -151,7 +151,7 @@ export const TIMELINE_MILESTONES: TimelineMilestone[] = [
       ar: 'تأسيس AMEKRAN للتأمين بطنجة',
     },
     description: {
-      fr: 'Création du cabinet en qualité d’Agent Général à Tanger, animé par l’exigence du conseil sur mesure et la proximité terrain.',
+      fr: 'Création du cabinet AMEKRAN Assurances à Tanger, animé par l’exigence du conseil sur mesure et la proximité terrain.',
       en: 'Establishment of the firm as a General Insurance Agent in Tangier, driven by tailored advice and local proximity.',
       ar: 'تأسيس المكتب بصفة وكيل عام بطنجة، انطلاقاً من الحرص على الاستشارة المصممة والقرب الميداني.',
     },
@@ -314,9 +314,9 @@ export const TEAM_DIRECTORS: TeamDirector[] = [
     id: 'karim-amekran',
     name: 'Mme.  Amekran',
     role: {
-      fr: 'Agent Général & Fondateur',
-      en: 'General Agent & Founder',
-      ar: 'الوكيل العام والمؤسس',
+      fr: 'Fondateur & Assureur',
+      en: 'Founder & Insurer',
+      ar: 'المؤسس وشركة التأمين',
     },
     imageKey: 'salma',
     bio: {

@@ -652,7 +652,7 @@ export default function AutomobileOffersPage({
       </header>
 
       {/* Reserves the header footprint */}
-      <div aria-hidden="true" className="shrink-0 h-[105px] lg:h-[109px]" />
+      <div aria-hidden="true" className="shrink-0 h-[114px] sm:h-[120px] lg:h-[124px]" />
 
       <main className="flex-1 flex flex-col">
         {/* ---------------- Hero (rounded navy banner) ---------------- */}

@@ -2,14 +2,13 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { Facebook, Instagram, Linkedin, Youtube } from 'lucide-react';
+import { Facebook, Instagram } from 'lucide-react';
 import {
   INSURANCE_SOLUTIONS,
   t3,
   type Language,
   type SolutionId,
 } from '@/lib/insurance';
-import { RMA_URL } from '@/lib/rma';
 
 interface SecondFooterProps {
   lang: Language;
@@ -31,27 +30,15 @@ export default function SecondFooter({
   const socialLinks = [
     {
       name: 'Facebook',
-      href: 'https://www.facebook.com',
+      href: 'https://web.facebook.com/profile.php?id=100009611230080',
       icon: Facebook,
       label: 'Facebook Amekran Assurances',
     },
     {
       name: 'Instagram',
-      href: 'https://www.instagram.com',
+      href: 'https://www.instagram.com/assurances.amekran/',
       icon: Instagram,
       label: 'Instagram Amekran Assurances',
-    },
-    {
-      name: 'LinkedIn',
-      href: 'https://www.linkedin.com',
-      icon: Linkedin,
-      label: 'LinkedIn Amekran Assurances',
-    },
-    {
-      name: 'YouTube',
-      href: 'https://www.youtube.com',
-      icon: Youtube,
-      label: 'YouTube Amekran Assurances',
     },
   ];
 
@@ -114,9 +101,9 @@ export default function SecondFooter({
                 >
                   {t3(
                     lang,
-                    'Offres & règles RMA',
-                    'RMA offers & rules',
-                    'عروض وقواعد RMA'
+                    'Offres & règles AMEKRAN',
+                    'AMEKRAN offers & rules',
+                    'عروض وقواعد AMEKRAN'
                   )}
                 </Link>
               </li>
@@ -249,51 +236,6 @@ export default function SecondFooter({
           </div>
         </div>
 
-        {/* RMA parent brand */}
-        <div
-          data-gsap-reveal
-          className="mt-6 sm:mt-10 flex flex-col items-start justify-between gap-3 sm:gap-4 rounded-xl sm:rounded-2xl border border-[#E1E9F4] bg-white p-3.5 sm:px-5 sm:py-4 shadow-[0_16px_40px_-34px_rgba(11,30,64,0.5)] sm:flex-row sm:items-center"
-        >
-          <div className="flex items-center gap-3">
-            <span className="inline-flex shrink-0 items-center rounded-md border border-[#E4EAF4] bg-white px-2 py-1">
-              <Image
-                src="/rma-logo.png"
-                alt="RMA Assurance"
-                width={318}
-                height={84}
-                className="h-5 sm:h-6 w-auto"
-              />
-            </span>
-            <div>
-              <p className="text-[12px] sm:text-[12.5px] font-bold text-[#142554]">
-                {t3(
-                  lang,
-                  'Agence RMA Assurance à Tanger',
-                  'RMA Assurance agency in Tangier',
-                  'وكالة RMA للتأمين بطنجة'
-                )}
-              </p>
-              <p className="text-[10.5px] sm:text-[11.5px] text-[#5B6E99]">
-                {t3(
-                  lang,
-                  'AMEKRAN Assurances · Agent Général Agréé RMA',
-                  'AMEKRAN Assurances · Certified RMA General Agent',
-                  'AMEKRAN للتأمين · الوكيل العام المعتمد لـ RMA'
-                )}
-              </p>
-            </div>
-          </div>
-          <a
-            href={RMA_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex shrink-0 items-center gap-1 rounded-full border border-[#CBD9EA] px-3 py-1.5 text-[11px] sm:text-[12px] font-bold text-[#0B1E40] transition-colors hover:border-[#D99E26]/60 hover:text-[#B7791F]"
-          >
-            rmaassurance.com
-            <span aria-hidden="true">↗</span>
-          </a>
-        </div>
-
         {/* Bottom Subtle Divider & Legal Regulatory Notice */}
         <div
           data-gsap-reveal
@@ -302,9 +244,9 @@ export default function SecondFooter({
           <span data-gsap-item>
             {t3(
               lang,
-              'Amekran Assurances · Agent Général RMA Assurance à Tanger',
-              'Amekran Assurances · RMA Assurance General Agent in Tangier',
-              'AMEKRAN للتأمين · الوكيل العام لـ RMA بطنجة'
+              'Amekran Assurances · AMEKRAN Assurances à Tanger',
+              'Amekran Assurances · Insurer in Tangier',
+              'AMEKRAN للتأمين بطنجة'
             )}
           </span>
           <span data-gsap-item className="text-center sm:text-end">

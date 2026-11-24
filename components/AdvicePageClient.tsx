@@ -10,7 +10,6 @@ import {
   Car,
   Check,
   ChevronRight,
-  ExternalLink,
   Heart,
   Home,
   Minus,
@@ -36,10 +35,9 @@ import {
   t3,
 } from '@/lib/insurance';
 import {
-  RMA_ADVICE,
-  RMA_FAQS,
-  RMA_PHONE,
-  RMA_URL,
+  AMEKRAN_ADVICE,
+  AMEKRAN_FAQS,
+  AMEKRAN_PHONE,
 } from '@/lib/rma';
 import heroAdviceImg from '@/src/assets/images/about_metier_assistance_1794761079945.jpg';
 
@@ -88,8 +86,8 @@ export default function AdvicePageClient({
 
   const filteredCategories =
     activeTab === 'all'
-      ? RMA_ADVICE
-      : RMA_ADVICE.filter((cat) => cat.id === activeTab);
+      ? AMEKRAN_ADVICE
+      : AMEKRAN_ADVICE.filter((cat) => cat.id === activeTab);
 
   return (
     <div
@@ -126,7 +124,7 @@ export default function AdvicePageClient({
       <main className="flex-1 flex flex-col">
         {/* Hero Card */}
         <section
-          aria-label={t3(lang, 'Conseils RMA Tanger', 'RMA Advice Tangier', 'إرشادات ونصائح RMA طنجة')}
+          aria-label={t3(lang, 'Conseils AMEKRAN Tanger', 'AMEKRAN Advice Tangier', 'إرشادات ونصائح AMEKRAN طنجة')}
           className="bg-white pt-4 pb-6 sm:pt-6 sm:pb-8 border-b border-[#E5ECF6]"
         >
           <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
@@ -182,9 +180,9 @@ export default function AdvicePageClient({
                     <span>
                       {t3(
                         lang,
-                        'Guides officiels RMA Assurance · Agent Général Tanger',
-                        'Official RMA Guides · Tangier General Agent',
-                        'أدلة وإرشادات RMA الرسمية · الوكيل العام بطنجة'
+                        'Guides officiels AMEKRAN Assurances · Tanger',
+                        'Official AMEKRAN Guides · Tangier',
+                        'أدلة وإرشادات AMEKRAN الرسمية · طنجة'
                       )}
                     </span>
                   </div>
@@ -201,9 +199,9 @@ export default function AdvicePageClient({
                   <p className="text-[14.5px] sm:text-[16px] text-slate-200 leading-relaxed">
                     {t3(
                       lang,
-                      'Découvrez les recommandations RMA pour votre véhicule, votre logement, votre santé et vos activités professionnelles à Tanger.',
-                      'Explore RMA advice for your vehicle, home, health and commercial activity in Tangier.',
-                      'اكتشفوا توصيات وقواعد RMA لسيارتكم وسكنكم وصحتكم وأنشطتكم المهنية بطنجة.'
+                      'Découvrez les recommandations AMEKRAN pour votre véhicule, votre logement, votre santé et vos activités professionnelles à Tanger.',
+                      'Explore AMEKRAN advice for your vehicle, home, health and commercial activity in Tangier.',
+                      'اكتشفوا توصيات وقواعد AMEKRAN لسيارتكم وسكنكم وصحتكم وأنشطتكم المهنية بطنجة.'
                     )}
                   </p>
                 </div>
@@ -226,7 +224,7 @@ export default function AdvicePageClient({
             >
               {t3(lang, 'Tous les conseils', 'All Advice', 'جميع النصائح')}
             </button>
-            {RMA_ADVICE.map((cat) => {
+            {AMEKRAN_ADVICE.map((cat) => {
               const Icon = CATEGORY_ICONS[cat.id] ?? BookOpen;
               const selected = activeTab === cat.id;
               return (
@@ -273,16 +271,6 @@ export default function AdvicePageClient({
                         </p>
                       </div>
                     </div>
-
-                    <a
-                      href={cat.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#DCE5F2] hover:border-[#D99E26] text-[#0B1E40] text-[12.5px] font-bold bg-white transition-colors shrink-0"
-                    >
-                      <span>{t3(lang, 'Guide officiel RMA', 'Official RMA guide', 'الدليل الرسمي لـ RMA')}</span>
-                      <ExternalLink className="w-3.5 h-3.5 text-[#D99E26]" />
-                    </a>
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -334,20 +322,20 @@ export default function AdvicePageClient({
               <p className="text-[13.5px] text-slate-300 max-w-xl">
                 {t3(
                   lang,
-                  `Appelez immédiatement le centre RMA au ${RMA_PHONE} ou notre agence AMEKRAN au 0661 50 89 25 avant toute réparation.`,
-                  `Call RMA center at ${RMA_PHONE} or our AMEKRAN agency on 0661 50 89 25 immediately before repairs.`,
-                  `اتصلوا فوراً بمركز RMA على ${RMA_PHONE} أو بوكالتنا أمكران على 0661 50 89 25 قبل أي إصلاح.`
+                  `Appelez immédiatement le centre AMEKRAN au ${AMEKRAN_PHONE} ou notre agence AMEKRAN au 0661 50 89 25 avant toute réparation.`,
+                  `Call AMEKRAN center at ${AMEKRAN_PHONE} or our AMEKRAN agency on 0661 50 89 25 immediately before repairs.`,
+                  `اتصلوا فوراً بمركز AMEKRAN على ${AMEKRAN_PHONE} أو بوكالتنا أمكران على 0661 50 89 25 قبل أي إصلاح.`
                 )}
               </p>
             </div>
 
             <div className="flex flex-wrap items-center gap-3 shrink-0">
               <a
-                href={`tel:${RMA_PHONE}`}
+                href={`tel:${AMEKRAN_PHONE}`}
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gold-pill hover:bg-gold-pill-hover text-[#0B1E40] text-[14px] font-extrabold shadow-lg"
               >
                 <Phone className="w-4 h-4" />
-                <span>{RMA_PHONE} (RMA 24/7)</span>
+                <span>{AMEKRAN_PHONE} (AMEKRAN 24/7)</span>
               </a>
               <a
                 href="tel:0661508925"
@@ -359,12 +347,12 @@ export default function AdvicePageClient({
           </div>
         </section>
 
-        {/* Global RMA FAQs */}
+        {/* Global AMEKRAN FAQs */}
         <section className="bg-[#F6F9FC] py-14 sm:py-16">
           <div className="max-w-[960px] mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-10">
               <h2 className="text-[26px] sm:text-[34px] font-extrabold text-[#0B1E40]">
-                {t3(lang, 'Questions fréquentes sur vos contrats RMA', 'Frequently Asked Questions on RMA policies', 'الأسئلة الشائعة حول عقود RMA')}
+                {t3(lang, 'Questions fréquentes sur vos contrats AMEKRAN', 'Frequently Asked Questions on AMEKRAN policies', 'الأسئلة الشائعة حول عقود AMEKRAN')}
               </h2>
               <p className="text-[14.5px] text-[#4A5E7F] mt-1">
                 {t3(
@@ -377,7 +365,7 @@ export default function AdvicePageClient({
             </div>
 
             <div className="space-y-4">
-              {RMA_FAQS.map((faq) => {
+              {AMEKRAN_FAQS.map((faq) => {
                 const isOpen = openFaqId === faq.id;
                 return (
                   <div

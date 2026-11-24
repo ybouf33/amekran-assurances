@@ -25,20 +25,20 @@ const cairo = Cairo({
 });
 
 export const metadata: Metadata = {
-  title: 'Amekran Assurances | Agence RMA Assurance à Tanger',
+  title: 'Amekran Assurances | Agence AMEKRAN Assurances à Tanger',
   description:
-    'Agence RMA Assurance à Tanger — AMEKRAN Assurances, Agent Général : automobile, moto, habitation, santé, épargne et loisirs.',
+    'Agence AMEKRAN Assurances à Tanger — automobile, moto, habitation, santé, épargne et loisirs.',
   openGraph: {
-    title: 'Amekran Assurances | Agence RMA Assurance à Tanger',
+    title: 'Amekran Assurances | Agence AMEKRAN Assurances à Tanger',
     description:
-      'Agence RMA Assurance à Tanger — 20 ans d’expertise en assurance particuliers, flottes, santé et entreprises.',
+      'Agence AMEKRAN Assurances à Tanger — 20 ans d’expertise en assurance particuliers, flottes, santé et entreprises.',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Amekran Assurances | Agence RMA Assurance à Tanger',
+    title: 'Amekran Assurances | Agence AMEKRAN Assurances à Tanger',
     description:
-      'Agence RMA Assurance à Tanger — automobile, moto, habitation, santé, épargne et loisirs.',
+      'Agence AMEKRAN Assurances à Tanger — automobile, moto, habitation, santé, épargne et loisirs.',
   },
 };
 

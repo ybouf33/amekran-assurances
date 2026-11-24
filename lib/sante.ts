@@ -370,9 +370,9 @@ export const SANTE_FAQS: SanteFaqItem[] = [
       ar: 'ما هي المصحات الشريكة بنظام الثالث المؤدي بطنجة؟',
     },
     answer: {
-      fr: 'Grâce au réseau RMA Assurance, vous bénéficiez du tiers payant dans toutes les principales cliniques privées de Tanger (Clinique Tingis, Hôpital Privé de Tanger, Clinique Al Amal, etc.) ainsi que dans les centres de radiologie et oncologie.',
-      en: 'Through the RMA Assurance healthcare network, direct billing is honored across all leading private hospitals and clinics in Tangier (Clinique Tingis, Tangier Private Hospital, Clinique Al Amal) and accredited diagnostic imaging centers.',
-      ar: 'بفضل شبكة RMA للتأمين، تستفيدون من الثالث المؤدي في كبرى المصحات الخاصة بطنجة (مصحة تينجيس، المستشفى الخاص بطنجة، مصحة الأمل وغيرها) ومراكز الأشعة والأورام.',
+      fr: 'Grâce au réseau AMEKRAN Assurances, vous bénéficiez du tiers payant dans toutes les principales cliniques privées de Tanger (Clinique Tingis, Hôpital Privé de Tanger, Clinique Al Amal, etc.) ainsi que dans les centres de radiologie et oncologie.',
+      en: 'Through the AMEKRAN Assurances healthcare network, direct billing is honored across all leading private hospitals and clinics in Tangier (Clinique Tingis, Tangier Private Hospital, Clinique Al Amal) and accredited diagnostic imaging centers.',
+      ar: 'بفضل شبكة AMEKRAN للتأمين، تستفيدون من الثالث المؤدي في كبرى المصحات الخاصة بطنجة (مصحة تينجيس، المستشفى الخاص بطنجة، مصحة الأمل وغيرها) ومراكز الأشعة والأورام.',
     },
   },
   {

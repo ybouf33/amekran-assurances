@@ -1,10 +1,8 @@
 'use client';
 
 import type { ComponentType } from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
 import {
-  ArrowUpRight,
   Bike,
   Car,
   Check,
@@ -18,16 +16,15 @@ import {
 } from 'lucide-react';
 import SectionHeading from '@/components/SectionHeading';
 import {
-  RMA_DISCLAIMER,
-  RMA_OFFERS,
-  RMA_RULES,
-  RMA_URL,
-  type RmaOfferIcon,
+  AMEKRAN_DISCLAIMER,
+  AMEKRAN_OFFERS,
+  AMEKRAN_RULES,
+  type AmekranOfferIcon,
 } from '@/lib/rma';
 import { t3, type Language } from '@/lib/insurance';
 
 const OFFER_ICONS: Record<
-  RmaOfferIcon,
+  AmekranOfferIcon,
   ComponentType<{ className?: string; strokeWidth?: number }>
 > = {
   car: Car,
@@ -38,17 +35,27 @@ const OFFER_ICONS: Record<
   leisure: Sparkles,
 };
 
+/** AMEKRAN offer id → advice anchor id on the internal Conseils page. */
+const OFFER_ADVICE_ANCHOR: Record<string, string> = {
+  automobile: 'auto',
+  moto: 'moto',
+  habitation: 'habitation',
+  sante: 'sante',
+  epargne: 'epargne',
+  loisirs: 'loisirs',
+};
+
 const RULE_ICONS = [ShieldCheck, FileText, Check, FileText];
 
 const LATIN_RUN =
   /([A-Za-z][A-Za-z0-9À-ÿ’'&.\-]*(?:[ \t]+[A-Za-z0-9À-ÿ’'&.\-]+)*|[0-9]+(?:[-\/][0-9]+)+)/g;
 
 /**
- * Arabic copy mixes RMA product names (Latin) into RTL sentences. Wrapping
+ * Arabic copy mixes AMEKRAN product names (Latin) into RTL sentences. Wrapping
  * each Latin run in `<bdi dir="ltr">` stops the bidi algorithm from reversing
  * or gluing the names to the Arabic conjunctions.
  */
-function RmaCopy({ text, lang }: { text: string; lang: Language }) {
+function AmekranCopy({ text, lang }: { text: string; lang: Language }) {
   if (lang !== 'ar') return <>{text}</>;
   return (
     <>
@@ -65,20 +72,20 @@ function RmaCopy({ text, lang }: { text: string; lang: Language }) {
   );
 }
 
-interface RmaOffersSectionProps {
+interface AmekranOffersSectionProps {
   lang: Language;
   onOpenContact: () => void;
 }
 
 /**
- * "Nos offres RMA" — mirrors the RMA Assurance product families and the
+ * "Nos offres AMEKRAN" — mirrors the AMEKRAN Assurances product families and the
  * underwriting / claim rules that apply to them, presented as the agency of
- * RMA in Tangier. Every product links out to its official RMA page.
+ * AMEKRAN in Tangier. Every product links out to its official AMEKRAN page.
  */
-export default function RmaOffersSection({
+export default function AmekranOffersSection({
   lang,
   onOpenContact,
-}: RmaOffersSectionProps) {
+}: AmekranOffersSectionProps) {
   return (
     <section
       id="offres-rma"
@@ -98,79 +105,28 @@ export default function RmaOffersSection({
         <SectionHeading
           id="offres-rma-title"
           lang={lang}
-          eyebrow={t3(lang, 'Agence RMA Assurance · Tanger', 'RMA Assurance Agency · Tangier', 'وكالة RMA للتأمين · طنجة')}
+          eyebrow={t3(lang, 'Agence AMEKRAN Assurances · Tanger', 'AMEKRAN Assurances Agency · Tangier', 'وكالة AMEKRAN للتأمين · طنجة')}
           title={t3(
             lang,
-            'Les offres RMA Assurance',
-            'The RMA Assurance offers',
-            'عروض RMA للتأمين'
+            'Les offres AMEKRAN Assurances',
+            'The AMEKRAN Assurances offers',
+            'عروض AMEKRAN للتأمين'
           )}
           subtitle={t3(
             lang,
-            'AMEKRAN Assurances, votre Agent Général RMA à Tanger : les mêmes produits, garanties et règles que la compagnie, avec un conseil de proximité.',
-            'AMEKRAN Assurances, your RMA General Agent in Tangier: the same products, cover and rules as the company, with local advice.',
-            'AMEKRAN للتأمين، وكيلكم العام لـ RMA بطنجة: نفس المنتجات والتغطيات والقواعد التي توفرها الشركة، مع استشارة محلية.'
+            'AMEKRAN Assurances, votre AMEKRAN Assurances à Tanger : les mêmes produits, garanties et règles que la compagnie, avec un conseil de proximité.',
+            'AMEKRAN Assurances, your AMEKRAN Assurances in Tangier: the same products, cover and rules as the company, with local advice.',
+            'AMEKRAN للتأمين، شركة تأمينكم بطنجة: منتجات وتغطيات وقواعد مصممة لكم، مع استشارة محلية.'
           )}
           className="mb-9 sm:mb-11"
         />
-
-        {/* RMA partner strip */}
-        <div
-          data-gsap-reveal
-          className="mb-10 flex flex-col items-center justify-between gap-4 rounded-2xl border border-[#DCE7F4] bg-white/80 px-5 py-4 shadow-[0_14px_40px_-30px_rgba(11,30,64,0.5)] backdrop-blur-sm sm:flex-row sm:px-7"
-        >
-          <div className="flex items-center gap-3.5">
-            <span className="inline-flex shrink-0 items-center rounded-lg border border-[#E4EAF4] bg-white px-2.5 py-1.5 shadow-sm">
-              <Image
-                src="/rma-logo.png"
-                alt="RMA Assurance"
-                width={318}
-                height={84}
-                className="h-7 w-auto"
-              />
-            </span>
-            <div className="text-start">
-              <p className="text-[13px] font-bold text-[#0B1E40]">
-                {t3(
-                  lang,
-                  'Royale Marocaine d’Assurance',
-                  'Royale Marocaine d’Assurance',
-                  'الشركة الملكية المغربية للتأمين'
-                )}
-              </p>
-              <p className="text-[11.5px] font-medium text-[#5B6E99]">
-                {t3(
-                  lang,
-                  'Compagnie partenaire · Agent Général à Tanger',
-                  'Partner company · General Agent in Tangier',
-                  'شركة شريكة · الوكيل العام بطنجة'
-                )}
-              </p>
-            </div>
-          </div>
-
-          <a
-            href={RMA_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-full bg-[#0B1E40] px-4 py-2 text-[12.5px] font-bold text-white transition-colors hover:bg-[#142B5C] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D99E26]"
-          >
-            {t3(
-              lang,
-              'Visiter rmaassurance.com',
-              'Visit rmaassurance.com',
-              'زيارة rmaassurance.com'
-            )}
-            <ArrowUpRight className="h-4 w-4 text-[#F4CB64]" aria-hidden="true" />
-          </a>
-        </div>
 
         {/* Offer family cards */}
         <div
           data-gsap-reveal
           className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3"
         >
-          {RMA_OFFERS.map((offer) => {
+          {AMEKRAN_OFFERS.map((offer) => {
             const Icon = OFFER_ICONS[offer.icon];
             return (
               <article
@@ -195,7 +151,7 @@ export default function RmaOffersSection({
                 </div>
 
                 <p className="mb-3.5 text-[12.5px] leading-relaxed text-[#51648C]">
-                  <RmaCopy text={offer.tagline[lang]} lang={lang} />
+                  <AmekranCopy text={offer.tagline[lang]} lang={lang} />
                 </p>
 
                 <ul className="mb-5 space-y-2">
@@ -204,7 +160,7 @@ export default function RmaOffersSection({
                       <span className="mt-[2px] inline-flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-[#F3F7FD] ring-1 ring-[#DDE8F5]">
                         <Check className="h-2.5 w-2.5 text-[#B7791F]" strokeWidth={3} aria-hidden="true" />
                       </span>
-                      <span><RmaCopy text={item[lang]} lang={lang} /></span>
+                      <span><AmekranCopy text={item[lang]} lang={lang} /></span>
                     </li>
                   ))}
                 </ul>
@@ -219,15 +175,13 @@ export default function RmaOffersSection({
                       <ChevronRight className="h-3.5 w-3.5 rtl:rotate-180" aria-hidden="true" />
                     </Link>
                   )}
-                  <a
-                    href={offer.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <Link
+                    href={`/${lang}/conseils#advice-${OFFER_ADVICE_ANCHOR[offer.id] ?? offer.id}`}
                     className="ms-auto inline-flex items-center gap-1 text-[12px] font-bold text-[#B7791F] transition-colors hover:text-[#8A5A0F]"
                   >
-                    {t3(lang, 'Chez RMA', 'At RMA', 'عند RMA')}
-                    <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
-                  </a>
+                    {t3(lang, 'Nos conseils', 'Our advice', 'نصائحنا')}
+                    <ChevronRight className="h-3.5 w-3.5 rtl:rotate-180" aria-hidden="true" />
+                  </Link>
                 </div>
               </article>
             );
@@ -252,25 +206,19 @@ export default function RmaOffersSection({
                 <h3 className="text-[22px] font-bold leading-tight sm:text-[26px]">
                   {t3(
                     lang,
-                    'Les règles RMA, expliquées simplement',
-                    'The RMA rules, simply explained',
-                    'قواعد RMA بشرح مبسط'
+                    'Les règles AMEKRAN, expliquées simplement',
+                    'The AMEKRAN rules, simply explained',
+                    'قواعد AMEKRAN بشرح مبسط'
                   )}
                 </h3>
               </div>
-              <a
-                href={RMA_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex shrink-0 items-center gap-2 rounded-full border border-[#F4CB64]/45 bg-white/[0.06] px-4 py-2 text-[12px] font-bold text-[#F8D366] transition-colors hover:bg-white/[0.12]"
-              >
-                {t3(lang, 'Conditions RMA', 'RMA conditions', 'شروط RMA')}
-                <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
-              </a>
+              <span className="inline-flex shrink-0 items-center gap-2 rounded-full border border-[#F4CB64]/45 bg-white/[0.06] px-4 py-2 text-[12px] font-bold text-[#F8D366]">
+                {t3(lang, 'Conditions AMEKRAN', 'AMEKRAN conditions', 'شروط AMEKRAN')}
+              </span>
             </div>
 
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-              {RMA_RULES.map((rule, idx) => {
+              {AMEKRAN_RULES.map((rule, idx) => {
                 const Icon = RULE_ICONS[idx] ?? FileText;
                 return (
                   <div
@@ -287,7 +235,7 @@ export default function RmaOffersSection({
                       </h4>
                     </div>
                     <p className="text-[12px] leading-relaxed text-slate-300/90">
-                      <RmaCopy text={rule.detail[lang]} lang={lang} />
+                      <AmekranCopy text={rule.detail[lang]} lang={lang} />
                     </p>
                   </div>
                 );
@@ -295,7 +243,7 @@ export default function RmaOffersSection({
             </div>
 
             <p className="mt-6 border-t border-white/10 pt-4 text-[10.5px] leading-relaxed text-slate-400/90">
-              <RmaCopy text={RMA_DISCLAIMER[lang]} lang={lang} />
+              <AmekranCopy text={AMEKRAN_DISCLAIMER[lang]} lang={lang} />
             </p>
           </div>
         </div>
@@ -309,21 +257,12 @@ export default function RmaOffersSection({
           >
             {t3(
               lang,
-              'Parler à votre agence RMA à Tanger',
-              'Talk to your RMA agency in Tangier',
-              'تحدثوا مع وكالة RMA بطنجة'
+              'Parler à votre agence AMEKRAN à Tanger',
+              'Talk to your AMEKRAN agency in Tangier',
+              'تحدثوا مع وكالة AMEKRAN بطنجة'
             )}
             <ChevronRight className="h-4 w-4 rtl:rotate-180" aria-hidden="true" />
           </button>
-          <a
-            href={RMA_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-full border border-[#CBD9EA] bg-white px-5 py-2.5 text-[13px] font-bold text-[#0B1E40] transition-colors hover:border-[#D99E26]/60 hover:text-[#B7791F]"
-          >
-            {t3(lang, 'Site officiel RMA', 'Official RMA website', 'موقع RMA الرسمي')}
-            <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
-          </a>
         </div>
       </div>
     </section>

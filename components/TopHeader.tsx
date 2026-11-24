@@ -6,7 +6,6 @@ import Link from 'next/link';
 import { Check, ChevronDown, Globe, MapPin, Phone } from 'lucide-react';
 import { AnimatePresence, motion } from 'motion/react';
 import crestImg from '@/src/assets/images/amekran_lion_crest_1794661933343.png';
-import { RMA_URL } from '@/lib/rma';
 import { t3, type Language } from '@/lib/insurance';
 
 interface TopHeaderProps {
@@ -156,31 +155,32 @@ export default function TopHeader({
         </svg>
       </div>
 
-      <div className="relative z-10 max-w-[1380px] mx-auto px-3 sm:px-6 lg:px-8 h-14 lg:h-[60px] flex items-center justify-between gap-3">
+      <div className="relative z-10 max-w-[1380px] mx-auto px-3 sm:px-6 lg:px-8 h-16 sm:h-[68px] lg:h-[74px] flex items-center justify-between gap-3">
         {/* Left: Brand Lockup & Unified Agency Heritage */}
         <div className="flex items-center gap-3.5 sm:gap-5 min-w-0">
           <Link
             href={logoHref}
-            className="flex items-center gap-2.5 shrink-0 group focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F4CB64] rounded-lg"
+            className="flex items-center gap-2.5 sm:gap-3.5 shrink-0 group focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F4CB64] rounded-lg"
           >
-            <div className="relative w-9 h-9 sm:w-10 sm:h-10 rounded-full overflow-hidden ring-1 ring-[#F4CB64]/75 shadow-[0_0_16px_rgba(244,203,100,0.22)] shrink-0 bg-[#08193B] transition-transform duration-200 group-hover:scale-105">
+            <div className="relative w-11 h-11 sm:w-13 sm:h-13 lg:w-14 lg:h-14 shrink-0 transition-transform duration-200 group-hover:scale-105">
               <Image
                 src={crestImg}
                 alt="Amekran Assurances"
                 fill
-                sizes="40px"
+                sizes="56px"
+                priority
                 referrerPolicy="no-referrer"
-                className="object-cover"
+                className="object-contain drop-shadow-[0_2px_12px_rgba(244,203,100,0.38)]"
               />
             </div>
             <div className="flex flex-col leading-none">
               <span
-                className="text-[15px] sm:text-[18px] font-bold tracking-[0.08em] text-white whitespace-nowrap"
+                className="text-[16px] sm:text-[19px] lg:text-[21px] font-bold tracking-[0.08em] text-white whitespace-nowrap"
                 style={{ fontFamily: 'var(--font-serif-brand)' }}
               >
                 AMEKRAN
               </span>
-              <span className="text-[8.5px] sm:text-[9.5px] font-semibold tracking-[0.3em] text-[#F2CA63] uppercase mt-0.5 whitespace-nowrap">
+              <span className="text-[9px] sm:text-[10px] lg:text-[10.5px] font-semibold tracking-[0.3em] text-[#F2CA63] uppercase mt-0.5 whitespace-nowrap">
                 ASSURANCES
               </span>
             </div>
@@ -188,73 +188,70 @@ export default function TopHeader({
 
           <span
             aria-hidden="true"
-            className="hidden md:block h-6 w-px bg-gradient-to-b from-transparent via-[#F4CB64]/35 to-transparent shrink-0"
+            className="hidden md:block h-8 w-px bg-gradient-to-b from-transparent via-[#F4CB64]/40 to-transparent shrink-0"
           />
 
-          {/* RMA Assurance — parent brand & General Agent marker */}
-          <a
-            href={RMA_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hidden md:flex items-center gap-2.5 shrink-0 select-none rounded-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F4CB64]"
+          {/* AMEKRAN Assurances — parent brand & General Agent marker */}
+          <div
+            className="hidden md:flex items-center gap-3 shrink-0 select-none"
             aria-label={
               lang === 'fr'
-                ? 'Agent Général RMA Assurance à Tanger'
+                ? 'AMEKRAN Assurances à Tanger'
                 : lang === 'ar'
-                  ? 'الوكيل العام لـ RMA للتأمين بطنجة'
-                  : 'RMA Assurance General Agent in Tangier'
+                  ? 'AMEKRAN للتأمين بطنجة'
+                  : 'AMEKRAN Assurances General Agent in Tangier'
             }
           >
-            <span className="inline-flex items-center rounded-md bg-white px-2 py-1 shadow-[0_1px_10px_rgba(0,0,0,0.28)] transition-transform duration-200 hover:scale-[1.04]">
+            <span className="inline-flex items-center rounded-md bg-white px-2.5 py-1.5 shadow-[0_1px_12px_rgba(0,0,0,0.3)]">
               <Image
                 src="/rma-logo.png"
-                alt="RMA Assurance"
-                width={318}
-                height={84}
-                sizes="80px"
-                className="h-[18px] w-auto lg:h-5"
+                alt="RMA Royale Marocaine d'Assurance - Agent Général"
+                width={300}
+                height={100}
+                sizes="(max-width: 1024px) 85px, 110px"
+                className="h-5 sm:h-6 lg:h-7 w-auto object-contain"
               />
             </span>
             <div className="flex flex-col leading-tight">
-              <span className="text-[9px] lg:text-[10px] font-semibold tracking-[0.14em] uppercase text-slate-300/85 whitespace-nowrap">
-                {t3(lang, 'Agent Général RMA', 'RMA General Agent', 'الوكيل العام RMA')}
+              <span className="text-[9.5px] lg:text-[10.5px] font-semibold tracking-[0.14em] uppercase text-slate-300/85 whitespace-nowrap">
+                {t3(lang, 'AMEKRAN Assurances', 'AMEKRAN Assurances', 'AMEKRAN للتأمين')}
               </span>
-              <span className="text-[11.5px] lg:text-[12.5px] font-bold tracking-tight text-[#F6D36E] whitespace-nowrap">
+              <span className="text-[12px] lg:text-[13.5px] font-bold tracking-tight text-[#F6D36E] whitespace-nowrap">
                 {t3(lang, 'Tanger · 20 ans d’expertise', 'Tangier · 20 years of expertise', 'طنجة · 20 سنة من الخبرة')}
               </span>
             </div>
-          </a>
+          </div>
         </div>
 
         {/* Right: Quick Contact Actions & Language Dropdown */}
-        <div className="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
+        <div className="flex items-center gap-2 sm:gap-3 shrink-0">
           <a
             href="tel:0661508925"
-            className="flex items-center gap-2 px-2.5 sm:px-3 py-1.5 rounded-xl bg-white/[0.04] hover:bg-white/[0.1] border border-white/10 hover:border-[#F4CB64]/45 text-xs sm:text-[13.5px] font-semibold text-white hover:text-[#F8D366] transition-all whitespace-nowrap min-h-[38px] focus-visible:outline-2 focus-visible:outline-[#F4CB64]"
+            className="flex items-center gap-2 px-3 sm:px-3.5 py-1.5 sm:py-2 rounded-xl bg-white/[0.04] hover:bg-white/[0.1] border border-white/10 hover:border-[#F4CB64]/45 text-xs sm:text-[14px] font-semibold text-white hover:text-[#F8D366] transition-all whitespace-nowrap min-h-[40px] sm:min-h-[42px] focus-visible:outline-2 focus-visible:outline-[#F4CB64]"
             aria-label="Appeler le 0661 50 89 25"
           >
             <Phone
-              className="w-3.5 h-3.5 text-[#F2CA63] shrink-0"
+              className="w-4 h-4 text-[#F2CA63] shrink-0"
               aria-hidden="true"
             />
-            <span className="tabular-nums">0661 50 89 25</span>
+            <span className="tabular-nums font-bold">0661 50 89 25</span>
           </a>
 
           <button
             type="button"
             onClick={onOpenContact}
-            className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white/[0.04] hover:bg-white/[0.1] border border-white/10 hover:border-[#F4CB64]/45 text-[13.5px] font-medium text-slate-100 hover:text-[#F8D366] transition-all whitespace-nowrap min-h-[38px] cursor-pointer focus-visible:outline-2 focus-visible:outline-[#F4CB64]"
+            className="hidden sm:flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-white/[0.04] hover:bg-white/[0.1] border border-white/10 hover:border-[#F4CB64]/45 text-[14px] font-medium text-slate-100 hover:text-[#F8D366] transition-all whitespace-nowrap min-h-[42px] cursor-pointer focus-visible:outline-2 focus-visible:outline-[#F4CB64]"
           >
             <MapPin
-              className="w-3.5 h-3.5 text-[#F2CA63] shrink-0"
+              className="w-4 h-4 text-[#F2CA63] shrink-0"
               aria-hidden="true"
             />
-            <span>{lang === 'fr' ? 'Agence Tanger' : 'Tangier Office'}</span>
+            <span>{lang === 'fr' ? 'Agence Tanger' : lang === 'ar' ? 'وكالة طنجة' : 'Tangier Office'}</span>
           </button>
 
           <span
             aria-hidden="true"
-            className="h-5 w-px bg-white/15 mx-0.5 shrink-0"
+            className="h-6 w-px bg-white/15 mx-0.5 shrink-0"
           />
 
           {/* Modern Language Selector Dropdown */}
@@ -270,7 +267,7 @@ export default function TopHeader({
                   : `Change language (${currentLang.label})`
               }
               onClick={() => setLangOpen((prev) => !prev)}
-              className={`inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-xl border text-xs sm:text-[13px] font-bold tracking-wide transition-all whitespace-nowrap min-h-[38px] cursor-pointer focus-visible:outline-2 focus-visible:outline-[#F4CB64] ${langOpen
+              className={`inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-xl border text-xs sm:text-[13.5px] font-bold tracking-wide transition-all whitespace-nowrap min-h-[40px] sm:min-h-[42px] cursor-pointer focus-visible:outline-2 focus-visible:outline-[#F4CB64] ${langOpen
                   ? 'bg-white/[0.15] border-[#F4CB64]/70 text-[#F8D366] shadow-[0_0_12px_rgba(244,203,100,0.2)]'
                   : 'bg-white/[0.07] hover:bg-white/[0.13] border-white/15 hover:border-[#F4CB64]/50 text-white'
                 }`}

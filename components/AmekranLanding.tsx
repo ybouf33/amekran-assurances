@@ -7,6 +7,7 @@ import TopHeader from '@/components/TopHeader';
 import Navbar, { type NavSection } from '@/components/Navbar';
 import HeroSection from '@/components/HeroSection';
 import SolutionsGrid from '@/components/SolutionsGrid';
+import SpecialOffersSection from '@/components/SpecialOffersSection';
 import RmaOffersSection from '@/components/RmaOffersSection';
 import TrustAndFooter, {
   TrustPillarsStrip,
@@ -221,7 +222,7 @@ export default function AmekranLanding({
       {/* Reserves the header footprint now that it is out of the flow */}
       <div
         aria-hidden="true"
-        className="shrink-0 h-[105px] lg:h-[109px]"
+        className="shrink-0 h-[114px] sm:h-[120px] lg:h-[124px]"
       />
 
       <main className="flex-1 flex flex-col">
@@ -241,8 +242,9 @@ export default function AmekranLanding({
           paused={!introDone || isPaused}
           progressDurationMs={CAROUSEL_INTERVAL_MS}
         />
-        <RmaOffersSection lang={lang} onOpenContact={handleOpenContactSection} />
         <TrustPillarsStrip lang={lang} />
+        <SpecialOffersSection lang={lang} onOpenContact={handleOpenContactSection} />
+        <RmaOffersSection lang={lang} onOpenContact={handleOpenContactSection} />
         <ClientPortalSection
           lang={lang}
           onOpenClientPortal={() => setModal({ type: 'client' })}

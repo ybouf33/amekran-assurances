@@ -5,7 +5,6 @@ import { ChevronDown, Menu, User, X } from 'lucide-react';
 import { t3, type Language, type SolutionId } from '@/lib/insurance';
 import { INSURANCE_SOLUTIONS } from '@/lib/insurance';
 import { gsap, useGSAP } from '@/lib/gsap';
-import { RMA_CLIENT_URL } from '@/lib/rma';
 
 export type NavSection =
   | 'accueil'
@@ -32,7 +31,6 @@ export default function Navbar({
   activeNav,
   onSelectHome,
   onSelectSolution,
-  onOpenAdvice,
   onOpenContact,
 }: NavbarProps) {
   const [openDropdown, setOpenDropdown] = useState<'particuliers' | 'entreprises' | null>(null);
@@ -248,22 +246,6 @@ export default function Navbar({
             )}
           </div>
 
-          {/* Nos conseils */}
-          <button
-            type="button"
-            onClick={() => {
-              setOpenDropdown(null);
-              onOpenAdvice();
-            }}
-            className={`px-3 py-1.5 rounded-full text-[13.5px] font-semibold transition-colors whitespace-nowrap shrink-0 cursor-pointer ${
-              activeNav === 'conseils'
-                ? 'bg-[#FFF5DA] text-[#0B1E40] font-bold shadow-sm'
-                : 'text-[#0B1E40] hover:text-[#B57D14]'
-            }`}
-          >
-            {t3(lang, 'Nos conseils', 'Our Advice', 'نصائحنا')}
-          </button>
-
           <button
             type="button"
             onClick={() => {
@@ -300,12 +282,10 @@ export default function Navbar({
           </button>
         </div>
 
-        {/* Right Espace client button — opens RMA's client portal */}
+        {/* Right Espace client button — internal client area */}
         <a
           data-magnetic
-          href={RMA_CLIENT_URL}
-          target="_blank"
-          rel="noopener noreferrer"
+          href={`/${lang}#espace-client`}
           onClick={() => {
             setOpenDropdown(null);
             setMobileMenuOpen(false);
@@ -339,16 +319,6 @@ export default function Navbar({
             ))}
           </div>
           <div className="flex items-center gap-2 pt-1">
-            <button
-              type="button"
-              onClick={() => {
-                setMobileMenuOpen(false);
-                onOpenAdvice();
-              }}
-              className="flex-1 py-2.5 px-3 rounded-xl bg-slate-100 border border-slate-200 text-xs font-bold text-[#0B1E40] min-h-[44px]"
-            >
-              {t3(lang, 'Nos conseils', 'Our Advice', 'نصائحنا')}
-            </button>
             <button
               type="button"
               onClick={() => {

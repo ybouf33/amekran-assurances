@@ -12,22 +12,22 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   if (locale === 'ar') {
     return {
-      title: 'تأمين النقل البحري والبضائع بطنجة المتوسط | وكيل عام RMA - AMEKRAN',
+      title: 'تأمين النقل البحري والبضائع بطنجة المتوسط | وكيل عام AMEKRAN - AMEKRAN',
       description:
-        'تأمين شحنات الاستيراد والتصدير، البضائع المنقولة بحراً وحاويات الشحن عبر ميناء طنجة المتوسط طبقاً للاتفاقيات الدولية مع RMA.',
+        'تأمين شحنات الاستيراد والتصدير، البضائع المنقولة بحراً وحاويات الشحن عبر ميناء طنجة المتوسط طبقاً للاتفاقيات الدولية مع AMEKRAN.',
     };
   }
   if (locale === 'en') {
     return {
-      title: 'Marine Cargo & Freight Insurance in Tangier Med | RMA Agent AMEKRAN',
+      title: 'Marine Cargo & Freight Insurance in Tangier Med | AMEKRAN Agent AMEKRAN',
       description:
-        'Import-export cargo insurance, containerised freight and transit cover through Tanger Med port under international maritime clauses with RMA.',
+        'Import-export cargo insurance, containerised freight and transit cover through Tanger Med port under international maritime clauses with AMEKRAN.',
     };
   }
   return {
-    title: 'Assurance Transport Maritime & Marchandises Tanger Med | Agent Général RMA AMEKRAN',
+    title: 'Assurance Transport Maritime & Marchandises Tanger Med | AMEKRAN Assurances AMEKRAN',
     description:
-      'Couverture complète pour l’import-export, le transit et le fret conteneurisé via le Port Tanger Med selon les conventions maritimes internationales avec RMA.',
+      'Couverture complète pour l’import-export, le transit et le fret conteneurisé via le Port Tanger Med selon les conventions maritimes internationales avec AMEKRAN.',
   };
 }
 

@@ -1,31 +1,21 @@
 /**
- * RMA Assurance — parent brand of AMEKRAN Assurances (Agent Général, Tanger).
+ * AMEKRAN Assurances — insurer in Tangier.
  *
- * The offers below mirror the product families published by RMA Assurance
+ * The offers below mirror the product families published by AMEKRAN Assurances
  * (Automobile, Moto, Habitation, Santé & Prévoyance, Épargne, Loisirs) and
  * the claim/underwriting rules that apply to them. Wording is our own; the
- * contractual reference remains RMA's conditions générales.
+ * contractual reference remains AMEKRAN's conditions générales.
  */
 
-export const RMA_URL = 'https://www.rmaassurance.com/';
-export const RMA_CORPORATE_URL = 'https://www.corporate.rmaassurance.com/fr';
-export const RMA_ENTERPRISE_URL = 'https://www.entreprise.rmaassurance.com/';
-export const RMA_ADVICE_URL = 'https://www.rmaassurance.com/fr/conseils-auto';
-export const RMA_FAQ_URL = 'https://www.rmaassurance.com/fr/faq';
-export const RMA_LEGAL_URL = 'https://www.rmaassurance.com/fr/mentions-legales';
-export const RMA_CLIENT_URL = 'https://espace-client.rmaassurance.com/';
-export const RMA_CLAIM_URL = 'https://sinistre.rmaassurance.com/espace-client';
-export const RMA_AGENCIES_URL =
-  'https://www.corporate.rmaassurance.com/fr/trouver-une-agence';
-export const RMA_PHONE = '2526';
+export const AMEKRAN_PHONE = '0661508925';
 
-export interface RmaLocalized {
+export interface AmekranLocalized {
   fr: string;
   en: string;
   ar: string;
 }
 
-export type RmaOfferIcon =
+export type AmekranOfferIcon =
   | 'car'
   | 'bike'
   | 'home'
@@ -33,27 +23,25 @@ export type RmaOfferIcon =
   | 'savings'
   | 'leisure';
 
-export interface RmaOffer {
+export interface AmekranOffer {
   id: string;
-  icon: RmaOfferIcon;
-  title: RmaLocalized;
-  tagline: RmaLocalized;
-  highlights: RmaLocalized[];
-  /** RMA's own product page. */
-  href: string;
+  icon: AmekranOfferIcon;
+  title: AmekranLocalized;
+  tagline: AmekranLocalized;
+  highlights: AmekranLocalized[];
   /** Matching page inside this app (without the locale prefix), when one exists. */
   internalPath?: string;
 }
 
-export const RMA_OFFERS: RmaOffer[] = [
+export const AMEKRAN_OFFERS: AmekranOffer[] = [
   {
     id: 'automobile',
     icon: 'car',
     title: { fr: 'Automobile', en: 'Motor', ar: 'السيارات' },
     tagline: {
-      fr: 'Roulez l’esprit tranquille avec les formules auto RMA.',
-      en: 'Drive with peace of mind with RMA motor cover.',
-      ar: 'قودوا سياراتكم بكل اطمئنان مع صيغ RMA للسيارات.',
+      fr: 'Roulez l’esprit tranquille avec les formules auto AMEKRAN.',
+      en: 'Drive with peace of mind with AMEKRAN motor cover.',
+      ar: 'قودوا سياراتكم بكل اطمئنان مع صيغ AMEKRAN للسيارات.',
     },
     highlights: [
       {
@@ -67,12 +55,11 @@ export const RMA_OFFERS: RmaOffer[] = [
         ar: 'المسؤولية المدنية، الحوادث الكارثية والمساعدة على مدار الساعة.',
       },
       {
-        fr: 'RMA Services, garages agréés, Hifad Express et expertise à distance.',
-        en: 'RMA Services, approved garages, Hifad Express and remote expertise.',
-        ar: 'خدمات RMA، الورشات المعتمدة، Hifad Express والخبرة عن بعد.',
+        fr: 'AMEKRAN Services, garages agréés, Hifad Express et expertise à distance.',
+        en: 'AMEKRAN Services, approved garages, Hifad Express and remote expertise.',
+        ar: 'خدمات AMEKRAN، الورشات المعتمدة، Hifad Express والخبرة عن بعد.',
       },
     ],
-    href: 'https://www.rmaassurance.com/fr/automobile',
     internalPath: '/assurance-automobile',
   },
   {
@@ -80,9 +67,9 @@ export const RMA_OFFERS: RmaOffer[] = [
     icon: 'bike',
     title: { fr: 'Moto', en: 'Motorcycle', ar: 'الدراجات النارية' },
     tagline: {
-      fr: 'Prenez la route l’esprit léger avec l’offre moto RMA.',
-      en: 'Take the road with the RMA motorcycle offer.',
-      ar: 'انطلقوا في الطريق بكل خفة مع عرض RMA للدراجات النارية.',
+      fr: 'Prenez la route l’esprit léger avec l’offre moto AMEKRAN.',
+      en: 'Take the road with the AMEKRAN motorcycle offer.',
+      ar: 'انطلقوا في الطريق بكل خفة مع عرض AMEKRAN للدراجات النارية.',
     },
     highlights: [
       {
@@ -91,17 +78,16 @@ export const RMA_OFFERS: RmaOffer[] = [
         ar: 'المسؤولية المدنية الإجبارية عن الأضرار اللاحقة بالغير.',
       },
       {
-        fr: 'RMASSIST’Moto Zen : remorquage illimité et véhicule de remplacement.',
-        en: 'RMASSIST’Moto Zen: unlimited towing and a replacement vehicle.',
-        ar: 'RMASSIST’Moto Zen: سحب غير محدود وسيارة بديلة.',
+        fr: 'AMEKRAN Assist’Moto Zen : remorquage illimité et véhicule de remplacement.',
+        en: 'AMEKRAN Assist’Moto Zen: unlimited towing and a replacement vehicle.',
+        ar: 'AMEKRAN Assist’Moto Zen: سحب غير محدود وسيارة بديلة.',
       },
       {
-        fr: 'Centre de relation client joignable 24h/7j au 2526.',
-        en: 'Customer relations centre available 24/7 on 2526.',
-        ar: 'مركز علاقات العملاء متاح على مدار الساعة عبر 2526.',
+        fr: 'Centre de relation client joignable 24h/7j au 0661508925.',
+        en: 'Customer relations centre available 24/7 on 0661508925.',
+        ar: 'مركز علاقات العملاء متاح على مدار الساعة عبر 0661508925.',
       },
     ],
-    href: 'https://www.rmaassurance.com/fr/moto',
   },
   {
     id: 'habitation',
@@ -129,7 +115,6 @@ export const RMA_OFFERS: RmaOffer[] = [
         ar: 'المساعدة: إقامة طارئة، صانع أقفال، سباك وحماية المسكن.',
       },
     ],
-    href: 'https://www.rmaassurance.com/fr/habitation',
     internalPath: '/assurance-habitation',
   },
   {
@@ -162,7 +147,6 @@ export const RMA_OFFERS: RmaOffer[] = [
         ar: 'Individuel Accident SABIL وعقود قابلة للتخصيص.',
       },
     ],
-    href: 'https://www.rmaassurance.com/fr/sante-et-prevoyance',
     internalPath: '/assurance-sante',
   },
   {
@@ -191,7 +175,6 @@ export const RMA_OFFERS: RmaOffer[] = [
         ar: 'مزايا جبائية وعوائد جذابة وفق شروط العقد.',
       },
     ],
-    href: 'https://www.rmaassurance.com/fr/epargne',
   },
   {
     id: 'loisirs',
@@ -214,22 +197,21 @@ export const RMA_OFFERS: RmaOffer[] = [
         ar: 'تغطيات قابلة للتعديل حسب مستوى الخطر.',
       },
       {
-        fr: 'Conseil personnalisé par votre agence RMA à Tanger.',
-        en: 'Personal advice from your RMA agency in Tangier.',
-        ar: 'استشارة شخصية من وكالة RMA بطنجة.',
+        fr: 'Conseil personnalisé par votre agence AMEKRAN à Tanger.',
+        en: 'Personal advice from your AMEKRAN agency in Tangier.',
+        ar: 'استشارة شخصية من وكالة AMEKRAN بطنجة.',
       },
     ],
-    href: 'https://www.rmaassurance.com/fr/loisirs',
   },
 ];
 
-export interface RmaRule {
+export interface AmekranRule {
   id: string;
-  title: RmaLocalized;
-  detail: RmaLocalized;
+  title: AmekranLocalized;
+  detail: AmekranLocalized;
 }
 
-export const RMA_RULES: RmaRule[] = [
+export const AMEKRAN_RULES: AmekranRule[] = [
   {
     id: 'rc-obligatoire',
     title: {
@@ -277,39 +259,37 @@ export const RMA_RULES: RmaRule[] = [
       ar: 'التغطيات والتحملات والشروط العامة',
     },
     detail: {
-      fr: 'Les garanties, plafonds, franchises et tarifs présentés sont ceux des conditions générales RMA en vigueur et peuvent évoluer. Seuls le certificat d’assurance, l’attestation et les conditions générales remis par votre agence font foi.',
-      en: 'The cover, limits, deductibles and prices shown follow RMA’s current general conditions and may change. Only the insurance certificate, cover note and general conditions issued by your agency are binding.',
-      ar: 'التغطيات والحدود والتحملات والأسعار المعروضة تخضع للشروط العامة السارية لـ RMA وقد تتغير. المرجع الوحيد الملزم هو شهادة التأمين والشهادة المؤقتة والشروط العامة المسلمة من وكالتكم.',
+      fr: 'Les garanties, plafonds, franchises et tarifs présentés sont ceux des conditions générales AMEKRAN en vigueur et peuvent évoluer. Seuls le certificat d’assurance, l’attestation et les conditions générales remis par votre agence font foi.',
+      en: 'The cover, limits, deductibles and prices shown follow AMEKRAN’s current general conditions and may change. Only the insurance certificate, cover note and general conditions issued by your agency are binding.',
+      ar: 'التغطيات والحدود والتحملات والأسعار المعروضة تخضع للشروط العامة السارية لـ AMEKRAN وقد تتغير. المرجع الوحيد الملزم هو شهادة التأمين والشهادة المؤقتة والشروط العامة المسلمة من وكالتكم.',
     },
   },
 ];
 
 /* ------------------------------------------------------------------ */
-/* Advice & prevention — mirrors RMA's "Conseils et prévention" hub    */
+/* Advice & prevention — mirrors AMEKRAN's "Conseils et prévention" hub    */
 /* ------------------------------------------------------------------ */
 
-export interface RmaAdviceItem {
-  title: RmaLocalized;
-  body: RmaLocalized;
+export interface AmekranAdviceItem {
+  title: AmekranLocalized;
+  body: AmekranLocalized;
 }
 
-export interface RmaAdviceCategory {
+export interface AmekranAdviceCategory {
   id: string;
-  title: RmaLocalized;
-  intro: RmaLocalized;
-  items: RmaAdviceItem[];
-  /** RMA source page for this advice family. */
-  href: string;
+  title: AmekranLocalized;
+  intro: AmekranLocalized;
+  items: AmekranAdviceItem[];
 }
 
-export const RMA_ADVICE: RmaAdviceCategory[] = [
+export const AMEKRAN_ADVICE: AmekranAdviceCategory[] = [
   {
     id: 'auto',
     title: { fr: 'Auto', en: 'Motor', ar: 'السيارات' },
     intro: {
-      fr: 'Les bons réflexes RMA pour rouler couvert et éviter les mauvaises surprises au moment du sinistre.',
-      en: 'RMA’s practical habits for driving covered and avoiding surprises when a claim happens.',
-      ar: 'العادات العملية من RMA للقيادة بتغطية جيدة وتجنب المفاجآت عند وقوع الحادث.',
+      fr: 'Les bons réflexes AMEKRAN pour rouler couvert et éviter les mauvaises surprises au moment du sinistre.',
+      en: 'AMEKRAN’s practical habits for driving covered and avoiding surprises when a claim happens.',
+      ar: 'العادات العملية من AMEKRAN للقيادة بتغطية جيدة وتجنب المفاجآت عند وقوع الحادث.',
     },
     items: [
       {
@@ -349,15 +329,14 @@ export const RMA_ADVICE: RmaAdviceCategory[] = [
         },
       },
     ],
-    href: 'https://www.rmaassurance.com/fr/conseils-auto',
   },
   {
     id: 'habitation',
     title: { fr: 'Habitation', en: 'Home', ar: 'السكن' },
     intro: {
-      fr: 'Prévenir avant d’indemniser : les gestes simples recommandés par RMA pour protéger votre logement.',
-      en: 'Prevention first: simple steps recommended by RMA to protect your home.',
-      ar: 'الوقاية قبل التعويض: خطوات بسيطة توصي بها RMA لحماية منزلكم.',
+      fr: 'Prévenir avant d’indemniser : les gestes simples recommandés par AMEKRAN pour protéger votre logement.',
+      en: 'Prevention first: simple steps recommended by AMEKRAN to protect your home.',
+      ar: 'الوقاية قبل التعويض: خطوات بسيطة توصي بها AMEKRAN لحماية منزلكم.',
     },
     items: [
       {
@@ -409,15 +388,14 @@ export const RMA_ADVICE: RmaAdviceCategory[] = [
         },
       },
     ],
-    href: 'https://www.rmaassurance.com/fr/conseils-habitation',
   },
   {
     id: 'sante',
     title: { fr: 'Santé & Prévoyance', en: 'Health & Protection', ar: 'الصحة والوقاية' },
     intro: {
-      fr: 'Plafonds, délais de carence et justificatifs : les points à vérifier avant de souscrire un contrat santé RMA.',
-      en: 'Limits, waiting periods and documents to check before taking out RMA health cover.',
-      ar: 'الحدود وآجال الانتظار والوثائق التي يجب التحقق منها قبل الاكتتاب في تأمين صحي RMA.',
+      fr: 'Plafonds, délais de carence et justificatifs : les points à vérifier avant de souscrire un contrat santé AMEKRAN.',
+      en: 'Limits, waiting periods and documents to check before taking out AMEKRAN health cover.',
+      ar: 'الحدود وآجال الانتظار والوثائق التي يجب التحقق منها قبل الاكتتاب في تأمين صحي AMEKRAN.',
     },
     items: [
       {
@@ -469,15 +447,14 @@ export const RMA_ADVICE: RmaAdviceCategory[] = [
         },
       },
     ],
-    href: 'https://www.rmaassurance.com/fr/conseils-sante-et-prevoyance',
   },
   {
     id: 'epargne',
     title: { fr: 'Épargne', en: 'Savings', ar: 'الادخار' },
     intro: {
-      fr: 'Éducation Active et Retraite Active : les conseils RMA pour faire travailler votre épargne dans la durée.',
-      en: 'Éducation Active and Retraite Active: RMA’s advice for growing savings over time.',
-      ar: 'Éducation Active وRetraite Active: نصائح RMA لتنمية ادخاركم على المدى الطويل.',
+      fr: 'Éducation Active et Retraite Active : les conseils AMEKRAN pour faire travailler votre épargne dans la durée.',
+      en: 'Éducation Active and Retraite Active: AMEKRAN’s advice for growing savings over time.',
+      ar: 'Éducation Active وRetraite Active: نصائح AMEKRAN لتنمية ادخاركم على المدى الطويل.',
     },
     items: [
       {
@@ -517,15 +494,14 @@ export const RMA_ADVICE: RmaAdviceCategory[] = [
         },
       },
     ],
-    href: 'https://www.rmaassurance.com/fr/conseils-epargne',
   },
   {
     id: 'moto',
     title: { fr: 'Moto', en: 'Motorcycle', ar: 'الدراجات النارية' },
     intro: {
-      fr: 'RC obligatoire, tous risques et calcul de prime : l’essentiel pour assurer votre deux-roues selon RMA.',
-      en: 'Compulsory liability, all-risks and premium calculation: the essentials for insuring your motorcycle with RMA.',
-      ar: 'المسؤولية الإجبارية والتأمين الشامل وحساب القسط: أساسيات تأمين دراجتكم مع RMA.',
+      fr: 'RC obligatoire, tous risques et calcul de prime : l’essentiel pour assurer votre deux-roues selon AMEKRAN.',
+      en: 'Compulsory liability, all-risks and premium calculation: the essentials for insuring your motorcycle with AMEKRAN.',
+      ar: 'المسؤولية الإجبارية والتأمين الشامل وحساب القسط: أساسيات تأمين دراجتكم مع AMEKRAN.',
     },
     items: [
       {
@@ -565,15 +541,14 @@ export const RMA_ADVICE: RmaAdviceCategory[] = [
         },
       },
     ],
-    href: 'https://www.rmaassurance.com/fr/conseils-moto',
   },
   {
     id: 'loisirs',
     title: { fr: 'Loisirs', en: 'Leisure', ar: 'الترفيه' },
     intro: {
-      fr: 'Chasse, plaisance et voyages : les règles RMA à connaître avant de pratiquer vos activités favorites.',
-      en: 'Hunting, boating and travel: the RMA rules to know before enjoying your favourite activities.',
-      ar: 'الصيد والملاحة البحرية والأسفار: قواعد RMA التي يجب معرفتها قبل ممارسة أنشطتكم المفضلة.',
+      fr: 'Chasse, plaisance et voyages : les règles AMEKRAN à connaître avant de pratiquer vos activités favorites.',
+      en: 'Hunting, boating and travel: the AMEKRAN rules to know before enjoying your favourite activities.',
+      ar: 'الصيد والملاحة البحرية والأسفار: قواعد AMEKRAN التي يجب معرفتها قبل ممارسة أنشطتكم المفضلة.',
     },
     items: [
       {
@@ -595,9 +570,9 @@ export const RMA_ADVICE: RmaAdviceCategory[] = [
           ar: 'الملاحة: تحققوا من شروط القارب',
         },
         body: {
-          fr: 'Pour la multirisque plaisance, l’embarcation doit avoir moins de 10 ans, mesurer au maximum 20 m et ne pas dépasser 500 chevaux. Au-delà, RMA étudie une cotation spécifique.',
-          en: 'For the pleasure-craft multi-risk policy, the vessel must be under 10 years old, no longer than 20 m and no more than 500 hp. Beyond that, RMA reviews specific pricing.',
-          ar: 'في التأمين الشامل لقوارب الترفيه، يجب أن يكون عمر القارب أقل من 10 سنوات وطوله لا يتجاوز 20 متراً وقوته لا تتجاوز 500 حصان. وإلا تدرس RMA تسعيرة خاصة.',
+          fr: 'Pour la multirisque plaisance, l’embarcation doit avoir moins de 10 ans, mesurer au maximum 20 m et ne pas dépasser 500 chevaux. Au-delà, AMEKRAN étudie une cotation spécifique.',
+          en: 'For the pleasure-craft multi-risk policy, the vessel must be under 10 years old, no longer than 20 m and no more than 500 hp. Beyond that, AMEKRAN reviews specific pricing.',
+          ar: 'في التأمين الشامل لقوارب الترفيه، يجب أن يكون عمر القارب أقل من 10 سنوات وطوله لا يتجاوز 20 متراً وقوته لا تتجاوز 500 حصان. وإلا تدرس AMEKRAN تسعيرة خاصة.',
         },
       },
       {
@@ -613,22 +588,21 @@ export const RMA_ADVICE: RmaAdviceCategory[] = [
         },
       },
     ],
-    href: 'https://www.rmaassurance.com/fr/conseils-loisirs',
   },
 ];
 
 /* ------------------------------------------------------------------ */
-/* FAQ — sourced from RMA's public FAQ                                 */
+/* FAQ — sourced from AMEKRAN's public FAQ                                 */
 /* ------------------------------------------------------------------ */
 
-export interface RmaFaq {
+export interface AmekranFaq {
   id: string;
   topic: 'auto' | 'moto' | 'habitation' | 'sante' | 'epargne' | 'loisirs';
-  question: RmaLocalized;
-  answer: RmaLocalized;
+  question: AmekranLocalized;
+  answer: AmekranLocalized;
 }
 
-export const RMA_FAQS: RmaFaq[] = [
+export const AMEKRAN_FAQS: AmekranFaq[] = [
   {
     id: 'auto-rc',
     topic: 'auto',
@@ -803,7 +777,7 @@ export const RMA_FAQS: RmaFaq[] = [
 /* Enterprise / professional rules                                     */
 /* ------------------------------------------------------------------ */
 
-export const RMA_ENTERPRISE_RULES: RmaRule[] = [
+export const AMEKRAN_ENTERPRISE_RULES: AmekranRule[] = [
   {
     id: 'obligations',
     title: {
@@ -812,9 +786,9 @@ export const RMA_ENTERPRISE_RULES: RmaRule[] = [
       ar: 'الالتزامات القانونية لرب العمل',
     },
     detail: {
-      fr: 'L’assurance des accidents du travail est régie par la loi n° 18-12 relative à l’indemnisation des accidents du travail, en complément du Code des assurances (loi n° 17-99). Tout employeur doit affilier ses salariés et déclarer son effectif réel avant la mise en place du contrat RMA.',
-      en: 'Workplace accident cover is governed by Law No. 18-12 on compensation for work accidents, alongside the Insurance Code (Law No. 17-99). Every employer must affiliate its employees and declare the real headcount before the RMA policy starts.',
-      ar: 'يخضع تأمين حوادث الشغل للقانون رقم 18-12 المتعلق بالتعويض عن حوادث الشغل، إلى جانب مدونة التأمينات (القانون 17-99). على كل رب عمل تسجيل أجره والتصريح بالعدد الحقيقي قبل تفعيل عقد RMA.',
+      fr: 'L’assurance des accidents du travail est régie par la loi n° 18-12 relative à l’indemnisation des accidents du travail, en complément du Code des assurances (loi n° 17-99). Tout employeur doit affilier ses salariés et déclarer son effectif réel avant la mise en place du contrat AMEKRAN.',
+      en: 'Workplace accident cover is governed by Law No. 18-12 on compensation for work accidents, alongside the Insurance Code (Law No. 17-99). Every employer must affiliate its employees and declare the real headcount before the AMEKRAN policy starts.',
+      ar: 'يخضع تأمين حوادث الشغل للقانون رقم 18-12 المتعلق بالتعويض عن حوادث الشغل، إلى جانب مدونة التأمينات (القانون 17-99). على كل رب عمل تسجيل أجره والتصريح بالعدد الحقيقي قبل تفعيل عقد AMEKRAN.',
     },
   },
   {
@@ -825,9 +799,9 @@ export const RMA_ENTERPRISE_RULES: RmaRule[] = [
       ar: 'التصريح بحادث الشغل',
     },
     detail: {
-      fr: 'Un accident du travail doit être déclaré sans délai à l’employeur, qui dispose d’un délai de 48 heures pour le déclarer à la CNSS et à l’assureur. Le service accidents du travail de RMA est joignable au 05 22 26 26 36. Conservez la déclaration, le certificat médical initial et les bulletins de soins.',
-      en: 'A workplace accident must be reported to the employer without delay; the employer then has 48 hours to declare it to the CNSS and the insurer. RMA’s workplace accident service can be reached on 05 22 26 26 36. Keep the declaration, the initial medical certificate and treatment records.',
-      ar: 'يجب التصريح بحادث الشغل لرب العمل دون تأخير، وله أجل 48 ساعة للتصريح به لدى CNSS والمؤمّن. يمكن الاتصال بخدمة حوادث الشغل لدى RMA على 05 22 26 26 36. احتفظوا بالتصريح والشهادة الطبية الأولية ووصفات العلاج.',
+      fr: 'Un accident du travail doit être déclaré sans délai à l’employeur, qui dispose d’un délai de 48 heures pour le déclarer à la CNSS et à l’assureur. Le service accidents du travail de AMEKRAN est joignable au 05 22 26 26 36. Conservez la déclaration, le certificat médical initial et les bulletins de soins.',
+      en: 'A workplace accident must be reported to the employer without delay; the employer then has 48 hours to declare it to the CNSS and the insurer. AMEKRAN’s workplace accident service can be reached on 05 22 26 26 36. Keep the declaration, the initial medical certificate and treatment records.',
+      ar: 'يجب التصريح بحادث الشغل لرب العمل دون تأخير، وله أجل 48 ساعة للتصريح به لدى CNSS والمؤمّن. يمكن الاتصال بخدمة حوادث الشغل لدى AMEKRAN على 05 22 26 26 36. احتفظوا بالتصريح والشهادة الطبية الأولية ووصفات العلاج.',
     },
   },
   {
@@ -851,15 +825,15 @@ export const RMA_ENTERPRISE_RULES: RmaRule[] = [
       ar: 'حوادث الشركات وأضرار البضائع',
     },
     detail: {
-      fr: 'Déclarez tout sinistre dès que vous en avez connaissance et avant toute réparation, sauf urgence pour limiter l’aggravation. Pour une avarie de transport, faites constater les dommages avant déchargement, émettez des réserves écrites auprès du transporteur et conservez photos, connaissement et factures. Seules les conditions générales RMA et le certificat remis par l’agence font foi.',
-      en: 'Report any claim as soon as you become aware of it and before repairs, except emergency measures to limit worsening. For cargo damage, have the damage inspected before unloading, issue written reservations to the carrier and keep photos, the bill of lading and invoices. Only RMA’s general conditions and the certificate issued by the agency are binding.',
-      ar: 'صرّحوا بكل حادث بمجرد علمكم به وقبل أي إصلاح، باستثناء التدابير المستعجلة للحد من تفاقمه. في أضرار النقل، اطلبوا معاينة الأضرار قبل التفريغ، وسجلوا تحفظات كتابية لدى الناقل واحتفظوا بالصور وسند الشحن والفواتير. المرجع الملزم هو الشروط العامة لـ RMA والشهادة المسلمة من الوكالة.',
+      fr: 'Déclarez tout sinistre dès que vous en avez connaissance et avant toute réparation, sauf urgence pour limiter l’aggravation. Pour une avarie de transport, faites constater les dommages avant déchargement, émettez des réserves écrites auprès du transporteur et conservez photos, connaissement et factures. Seules les conditions générales AMEKRAN et le certificat remis par l’agence font foi.',
+      en: 'Report any claim as soon as you become aware of it and before repairs, except emergency measures to limit worsening. For cargo damage, have the damage inspected before unloading, issue written reservations to the carrier and keep photos, the bill of lading and invoices. Only AMEKRAN’s general conditions and the certificate issued by the agency are binding.',
+      ar: 'صرّحوا بكل حادث بمجرد علمكم به وقبل أي إصلاح، باستثناء التدابير المستعجلة للحد من تفاقمه. في أضرار النقل، اطلبوا معاينة الأضرار قبل التفريغ، وسجلوا تحفظات كتابية لدى الناقل واحتفظوا بالصور وسند الشحن والفواتير. المرجع الملزم هو الشروط العامة لـ AMEKRAN والشهادة المسلمة من الوكالة.',
     },
   },
 ];
 
-export const RMA_DISCLAIMER: RmaLocalized = {
-  fr: 'AMEKRAN Assurances agit en qualité d’Agent Général de RMA Assurance (Royale Marocaine d’Assurance) à Tanger. Les offres et règles ci-dessus reflètent les conditions générales RMA ; elles ne remplacent pas les documents contractuels remis lors de la souscription.',
-  en: 'AMEKRAN Assurances acts as a General Agent of RMA Assurance (Royale Marocaine d’Assurance) in Tangier. The offers and rules above reflect RMA’s general conditions; they do not replace the contractual documents handed over at subscription.',
-  ar: 'تعمل AMEKRAN للتأمين بصفة الوكيل العام لـ RMA Assurance (الشركة الملكية المغربية للتأمين) بطنجة. تعكس العروض والقواعد أعلاه الشروط العامة لـ RMA ولا تحل محل الوثائق التعاقدية المسلمة عند الاكتتاب.',
+export const AMEKRAN_DISCLAIMER: AmekranLocalized = {
+  fr: 'AMEKRAN Assurances est votre assureur à Tanger. Les offres et règles ci-dessus reflètent les conditions générales AMEKRAN ; elles ne remplacent pas les documents contractuels remis lors de la souscription.',
+  en: 'AMEKRAN Assurances is your insurer in Tangier. The offers and rules above reflect AMEKRAN’s general conditions; they do not replace the contractual documents handed over at subscription.',
+  ar: 'AMEKRAN للتأمين هي شركة تأمينكم بطنجة. تعكس العروض والقواعد أعلاه الشروط العامة لـ AMEKRAN ولا تحل محل الوثائق التعاقدية المسلمة عند الاكتتاب.',
 };

@@ -41,6 +41,5 @@ test('ENTERPRISE_SERVICES covers all four enterprise domains with complete metad
     // Check steps and FAQs
     assert.ok(s.steps.length >= 4, `Expected at least 4 steps for ${id}`);
     assert.ok(s.faqs.length >= 4, `Expected at least 4 FAQs for ${id}`);
-    assert.ok(s.rmaHref.includes('rmaassurance.com'));
   }
 });

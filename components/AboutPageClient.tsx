@@ -194,7 +194,7 @@ export default function AboutPageClient({ initialLang = 'fr' }: AboutPageClientP
       </header>
 
       <main className="flex-1 flex flex-col">
-        {/* 1. Corporate Hero Card matching RMA curved navy-to-photo composition */}
+        {/* 1. Corporate Hero Card matching AMEKRAN curved navy-to-photo composition */}
         <section
           aria-label={
             lang === 'fr'
@@ -214,8 +214,8 @@ export default function AboutPageClient({ initialLang = 'fr' }: AboutPageClientP
                 </h1>
                 <p className="text-[14.5px] sm:text-[15.5px] text-slate-200 leading-[1.7] max-w-[540px]">
                   {lang === 'fr'
-                    ? "Fidèle à sa promesse : protéger les biens, les familles et les entreprises pour leur permettre d'évoluer dans un monde plus serein, Amekran Assurances met à la disposition de ses assurés à Tanger des couvertures sur mesure adaptées à chaque étape de leur parcours. Pour garantir un accompagnement d'excellence, notre cabinet s'appuie sur plus de 20 ans d'expertise terrain, la solidité de RMA Assurance et une équipe dédiée à la proximité."
-                    : 'True to its promise—protecting assets, families, and businesses so they thrive with peace of mind—Amekran Assurances delivers tailored policies in Tangier at every stage. Backed by over 20 years of local expertise and the strength of RMA Assurance, our team combines technical rigor with personal proximity.'}
+                    ? "Fidèle à sa promesse : protéger les biens, les familles et les entreprises pour leur permettre d'évoluer dans un monde plus serein, Amekran Assurances met à la disposition de ses assurés à Tanger des couvertures sur mesure adaptées à chaque étape de leur parcours. Pour garantir un accompagnement d'excellence, notre cabinet s'appuie sur plus de 20 ans d'expertise terrain, la solidité de AMEKRAN Assurances et une équipe dédiée à la proximité."
+                    : 'True to its promise—protecting assets, families, and businesses so they thrive with peace of mind—Amekran Assurances delivers tailored policies in Tangier at every stage. Backed by over 20 years of local expertise and the strength of AMEKRAN Assurances, our team combines technical rigor with personal proximity.'}
                 </p>
               </div>
 
@@ -305,8 +305,8 @@ export default function AboutPageClient({ initialLang = 'fr' }: AboutPageClientP
                 </h2>
                 <p className="text-[15px] sm:text-[16px] text-[#223555] leading-[1.7]">
                   {lang === 'fr'
-                    ? "Forte de plus de 20 ans d'existence sur le marché tangérois, Amekran Assurances, Agent Général RMA Assurance de référence à Tanger, est reconnue pour son sérieux, la solidité de ses conseils et sa maîtrise des risques complexes."
-                    : 'With over 20 years in the Tangier market, Amekran Assurances, a trusted RMA Assurance General Agent, is recognized for rigorous underwriting advice and technical mastery of personal and commercial risks.'}
+                    ? "Forte de plus de 20 ans d'existence sur le marché tangérois, AMEKRAN Assurances, assureur de référence à Tanger, est reconnue pour son sérieux, la solidité de ses conseils et sa maîtrise des risques complexes."
+                    : 'With over 20 years in the Tangier market, Amekran Assurances, a trusted AMEKRAN Assurances insurer, is recognized for rigorous underwriting advice and technical mastery of personal and commercial risks.'}
                 </p>
                 <p className="text-[14.5px] sm:text-[15.5px] text-[#3A4E72] leading-[1.7]">
                   {lang === 'fr'
@@ -548,7 +548,7 @@ export default function AboutPageClient({ initialLang = 'fr' }: AboutPageClientP
           </div>
         </section>
 
-        {/* 6. Chiffres clés (Two-Row Metric Strips matching RMA architecture) */}
+        {/* 6. Chiffres clés (Two-Row Metric Strips matching AMEKRAN architecture) */}
         <section
           aria-label={lang === 'fr' ? 'Chiffres clés' : 'Key Figures'}
           className="py-14 lg:py-16 bg-white"

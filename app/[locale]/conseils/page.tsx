@@ -12,22 +12,22 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   if (locale === 'ar') {
     return {
-      title: 'نصائح وإرشادات التأمين | وكيل عام RMA Assurance - AMEKRAN طنجة',
+      title: 'نصائح وإرشادات التأمين | وكيل عام AMEKRAN Assurances - AMEKRAN طنجة',
       description:
-        'أهم القواعد والإرشادات للتأمين السليم والتصريح بالحوادث للسيارات، السكن، الصحة والشركات من RMA Assurance وأمكران للتأمينات.',
+        'أهم القواعد والإرشادات للتأمين السليم والتصريح بالحوادث للسيارات، السكن، الصحة والشركات من AMEKRAN Assurances وأمكران للتأمينات.',
     };
   }
   if (locale === 'en') {
     return {
-      title: 'Insurance Advice & Guides | RMA General Agent AMEKRAN Tangier',
+      title: 'Insurance Advice & Guides | AMEKRAN Assurances AMEKRAN Tangier',
       description:
-        'Practical habits, claims rules and insurance guidance for motor, home, health and commercial policies with RMA Assurance.',
+        'Practical habits, claims rules and insurance guidance for motor, home, health and commercial policies with AMEKRAN Assurances.',
     };
   }
   return {
-    title: 'Nos Conseils d’Assurance & Guides RMA | Agent Général AMEKRAN Tanger',
+    title: 'Nos Conseils d’Assurance & Guides AMEKRAN | AMEKRAN Assurances Tanger',
     description:
-      'Les bons réflexes pour être bien assuré et indemnisé sans surprise : guides auto, habitation, santé, épargne et entreprises avec RMA Assurance.',
+      'Les bons réflexes pour être bien assuré et indemnisé sans surprise : guides auto, habitation, santé, épargne et entreprises avec AMEKRAN Assurances.',
   };
 }
 

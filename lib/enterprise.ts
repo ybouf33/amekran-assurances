@@ -1,10 +1,9 @@
-import type { RmaLocalized } from './rma.ts';
-import { RMA_ENTERPRISE_URL } from './rma.ts';
+import type { AmekranLocalized } from './rma.ts';
 
 /**
  * Dedicated content for the enterprise solution pages that used to open a
- * quote modal. Every page presents the cover as a solution placed with RMA
- * Assurance through AMEKRAN Assurances, Agent Général in Tangier.
+ * quote modal. Every page presents the cover as a solution placed with AMEKRAN
+ * Assurance by AMEKRAN Assurances in Tangier.
  */
 
 export type EnterpriseServiceId =
@@ -35,23 +34,23 @@ export type EnterpriseIconKey =
 
 export interface EnterpriseCoverage {
   icon: EnterpriseIconKey;
-  title: RmaLocalized;
-  body: RmaLocalized;
+  title: AmekranLocalized;
+  body: AmekranLocalized;
 }
 
 export interface EnterpriseStep {
-  title: RmaLocalized;
-  body: RmaLocalized;
+  title: AmekranLocalized;
+  body: AmekranLocalized;
 }
 
 export interface EnterpriseStat {
   value: string;
-  label: RmaLocalized;
+  label: AmekranLocalized;
 }
 
 export interface EnterpriseFaq {
-  question: RmaLocalized;
-  answer: RmaLocalized;
+  question: AmekranLocalized;
+  answer: AmekranLocalized;
 }
 
 export interface EnterpriseService {
@@ -59,25 +58,18 @@ export interface EnterpriseService {
   path: string;
   image: EnterpriseImageKey;
   nav: 'entreprises' | 'poids-lourds';
-  badge: RmaLocalized;
-  title: RmaLocalized;
-  subtitle: RmaLocalized;
-  headline: RmaLocalized;
-  tagline: RmaLocalized;
-  summary: RmaLocalized;
-  heroPoints: RmaLocalized[];
+  badge: AmekranLocalized;
+  title: AmekranLocalized;
+  subtitle: AmekranLocalized;
+  headline: AmekranLocalized;
+  tagline: AmekranLocalized;
+  summary: AmekranLocalized;
+  heroPoints: AmekranLocalized[];
   stats: EnterpriseStat[];
   coverages: EnterpriseCoverage[];
   steps: EnterpriseStep[];
   faqs: EnterpriseFaq[];
-  rmaHref: string;
 }
-
-const ENTERPRISE_PORTAL_LABEL: RmaLocalized = {
-  fr: 'Espace Entreprises RMA',
-  en: 'RMA Business portal',
-  ar: 'فضاء الشركات RMA',
-};
 
 export const ENTERPRISE_SERVICES: Record<
   EnterpriseServiceId,
@@ -109,14 +101,14 @@ export const ENTERPRISE_SERVICES: Record<
       ar: 'أمّنوا نشاط شركتكم ومقراتها ونموها.',
     },
     tagline: {
-      fr: 'Solutions RMA sur mesure pour PME, industriels et grands comptes à Tanger.',
-      en: 'Tailored RMA solutions for SMEs, industry and large accounts in Tangier.',
-      ar: 'حلول RMA مصممة للصغرى والمتوسطة والصناعيين والحسابات الكبرى بطنجة.',
+      fr: 'Solutions AMEKRAN sur mesure pour PME, industriels et grands comptes à Tanger.',
+      en: 'Tailored AMEKRAN solutions for SMEs, industry and large accounts in Tangier.',
+      ar: 'حلول AMEKRAN مصممة للصغرى والمتوسطة والصناعيين والحسابات الكبرى بطنجة.',
     },
     summary: {
-      fr: 'De l’atelier au siège social, AMEKRAN structure avec RMA une protection cohérente : dommages aux biens, responsabilité civile, pertes financières et flottes. Chaque contrat est bâti sur un audit réel de votre activité, de vos sites et de vos valeurs assurées.',
-      en: 'From the workshop to head office, AMEKRAN builds a coherent RMA programme with you: property damage, liability, financial loss and fleets. Every policy starts from a real review of your activity, sites and insured values.',
-      ar: 'من الورشة إلى المقر الرئيسي، تبني AMEKRAN مع RMA برنامج حماية متناسقاً: الأضرار بالممتلكات، المسؤولية المدنية، الخسائر المالية والأساطيل. كل عقد ينطلق من تدقيق فعلي لنشاطكم ومواقعكم وقيمكم المؤمنة.',
+      fr: 'De l’atelier au siège social, AMEKRAN structure avec AMEKRAN une protection cohérente : dommages aux biens, responsabilité civile, pertes financières et flottes. Chaque contrat est bâti sur un audit réel de votre activité, de vos sites et de vos valeurs assurées.',
+      en: 'From the workshop to head office, AMEKRAN builds a coherent AMEKRAN programme with you: property damage, liability, financial loss and fleets. Every policy starts from a real review of your activity, sites and insured values.',
+      ar: 'من الورشة إلى المقر الرئيسي، تبني AMEKRAN مع AMEKRAN برنامج حماية متناسقاً: الأضرار بالممتلكات، المسؤولية المدنية، الخسائر المالية والأساطيل. كل عقد ينطلق من تدقيق فعلي لنشاطكم ومواقعكم وقيمكم المؤمنة.',
     },
     heroPoints: [
       {
@@ -125,9 +117,9 @@ export const ENTERPRISE_SERVICES: Record<
         ar: 'تدقيق المخاطر والقيم المؤمنة من طرف وكالتنا',
       },
       {
-        fr: 'Contrats RMA pour locaux, entrepôts, usines et chantiers',
-        en: 'RMA policies for offices, warehouses, plants and sites',
-        ar: 'عقود RMA للمكاتب والمستودعات والمصانع والورشات',
+        fr: 'Contrats AMEKRAN pour locaux, entrepôts, usines et chantiers',
+        en: 'AMEKRAN policies for offices, warehouses, plants and sites',
+        ar: 'عقود AMEKRAN للمكاتب والمستودعات والمصانع والورشات',
       },
       {
         fr: 'Interlocuteur unique à Tanger pour la vie du contrat',
@@ -147,17 +139,17 @@ export const ENTERPRISE_SERVICES: Record<
       {
         value: '1',
         label: {
-          fr: 'Agence RMA de proximité à Tanger',
-          en: 'Local RMA agency in Tangier',
-          ar: 'وكالة RMA قريبة بطنجة',
+          fr: 'Agence AMEKRAN de proximité à Tanger',
+          en: 'Local AMEKRAN agency in Tangier',
+          ar: 'وكالة AMEKRAN قريبة بطنجة',
         },
       },
       {
         value: '24/7',
         label: {
-          fr: 'Assistance RMA en cas d’urgence',
-          en: 'RMA assistance in an emergency',
-          ar: 'مساعدة RMA في الحالات المستعجلة',
+          fr: 'Assistance AMEKRAN en cas d’urgence',
+          en: 'AMEKRAN assistance in an emergency',
+          ar: 'مساعدة AMEKRAN في الحالات المستعجلة',
         },
       },
     ],
@@ -235,9 +227,9 @@ export const ENTERPRISE_SERVICES: Record<
           ar: 'الأساطيل وحوادث الشغل',
         },
         body: {
-          fr: 'Véhicules de service, utilitaires et protection des salariés, coordonnés avec les autres contrats RMA de l’entreprise.',
-          en: 'Company cars, utility vehicles and employee protection, coordinated with the company’s other RMA policies.',
-          ar: 'سيارات المصلحة والمركبات النفعية وحماية الأجراء، بتنسيق مع عقود RMA الأخرى للشركة.',
+          fr: 'Véhicules de service, utilitaires et protection des salariés, coordonnés avec les autres contrats AMEKRAN de l’entreprise.',
+          en: 'Company cars, utility vehicles and employee protection, coordinated with the company’s other AMEKRAN policies.',
+          ar: 'سيارات المصلحة والمركبات النفعية وحماية الأجراء، بتنسيق مع عقود AMEKRAN الأخرى للشركة.',
         },
       },
     ],
@@ -256,14 +248,14 @@ export const ENTERPRISE_SERVICES: Record<
       },
       {
         title: {
-          fr: 'Cotation RMA',
-          en: 'RMA quotation',
-          ar: 'تسعيرة RMA',
+          fr: 'Cotation AMEKRAN',
+          en: 'AMEKRAN quotation',
+          ar: 'تسعيرة AMEKRAN',
         },
         body: {
-          fr: 'Construction d’un programme RMA lisible : garanties, plafonds, franchises et priorité des risques.',
-          en: 'A clear RMA programme: cover, limits, deductibles and risk priorities.',
-          ar: 'بناء برنامج RMA واضح: التغطيات والحدود والتحملات وأولويات المخاطر.',
+          fr: 'Construction d’un programme AMEKRAN lisible : garanties, plafonds, franchises et priorité des risques.',
+          en: 'A clear AMEKRAN programme: cover, limits, deductibles and risk priorities.',
+          ar: 'بناء برنامج AMEKRAN واضح: التغطيات والحدود والتحملات وأولويات المخاطر.',
         },
       },
       {
@@ -335,13 +327,12 @@ export const ENTERPRISE_SERVICES: Record<
           ar: 'هل يمكن تأمين نشاط حديث الإنشاء؟',
         },
         answer: {
-          fr: 'Oui. Un état prévisionnel, le statut de la société et la description précise de l’activité permettent à RMA d’étudier le risque et de proposer une couverture adaptée.',
-          en: 'Yes. A projected statement, the company’s legal status and a precise description of the activity let RMA assess the risk and propose suitable cover.',
-          ar: 'نعم. تسمح الميزانية التقديرية والنظام القانوني للشركة والوصف الدقيق للنشاط لـ RMA بدراسة الخطر واقتراح تغطية مناسبة.',
+          fr: 'Oui. Un état prévisionnel, le statut de la société et la description précise de l’activité permettent à AMEKRAN d’étudier le risque et de proposer une couverture adaptée.',
+          en: 'Yes. A projected statement, the company’s legal status and a precise description of the activity let AMEKRAN assess the risk and propose suitable cover.',
+          ar: 'نعم. تسمح الميزانية التقديرية والنظام القانوني للشركة والوصف الدقيق للنشاط لـ AMEKRAN بدراسة الخطر واقتراح تغطية مناسبة.',
         },
       },
     ],
-    rmaHref: RMA_ENTERPRISE_URL,
   },
   'accidents-travail': {
     id: 'accidents-travail',
@@ -369,14 +360,14 @@ export const ENTERPRISE_SERVICES: Record<
       ar: 'احموا كل موظف، من الورشة إلى المكتب.',
     },
     tagline: {
-      fr: 'Conformité, prise en charge rapide et accompagnement RH avec RMA.',
-      en: 'Compliance, fast care and HR support with RMA.',
-      ar: 'امتثال وتكفل سريع ومواكبة للموارد البشرية مع RMA.',
+      fr: 'Conformité, prise en charge rapide et accompagnement RH avec AMEKRAN.',
+      en: 'Compliance, fast care and HR support with AMEKRAN.',
+      ar: 'امتثال وتكفل سريع ومواكبة للموارد البشرية مع AMEKRAN.',
     },
     summary: {
-      fr: 'L’assurance accidents du travail est une obligation légale pour tout employeur. AMEKRAN met en place le contrat RMA, vérifie les effectifs et accompagne les déclarations, afin que chaque salarié blessé soit soigné et indemnisé dans les délais.',
-      en: 'Workplace accident insurance is a legal duty for every employer. AMEKRAN arranges the RMA policy, checks headcounts and supports declarations so every injured employee is treated and compensated on time.',
-      ar: 'تأمين حوادث الشغل التزام قانوني على كل رب عمل. تتولى AMEKRAN إعداد عقد RMA والتحقق من الأعداد ومواكبة التصريحات، ليُعالج كل أجير مصاب ويُعوّض في الآجال.',
+      fr: 'L’assurance accidents du travail est une obligation légale pour tout employeur. AMEKRAN met en place le contrat AMEKRAN, vérifie les effectifs et accompagne les déclarations, afin que chaque salarié blessé soit soigné et indemnisé dans les délais.',
+      en: 'Workplace accident insurance is a legal duty for every employer. AMEKRAN arranges the AMEKRAN policy, checks headcounts and supports declarations so every injured employee is treated and compensated on time.',
+      ar: 'تأمين حوادث الشغل التزام قانوني على كل رب عمل. تتولى AMEKRAN إعداد عقد AMEKRAN والتحقق من الأعداد ومواكبة التصريحات، ليُعالج كل أجير مصاب ويُعوّض في الآجال.',
     },
     heroPoints: [
       {
@@ -390,9 +381,9 @@ export const ENTERPRISE_SERVICES: Record<
         ar: 'تكفل طبي واستشفائي بالمصابين',
       },
       {
-        fr: 'Service AT RMA joignable au 05 22 26 26 36',
-        en: 'RMA workplace accident service on 05 22 26 26 36',
-        ar: 'خدمة حوادث الشغل RMA على 05 22 26 26 36',
+        fr: 'Service AT AMEKRAN joignable au 05 22 26 26 36',
+        en: 'AMEKRAN workplace accident service on 05 22 26 26 36',
+        ar: 'خدمة حوادث الشغل AMEKRAN على 05 22 26 26 36',
       },
     ],
     stats: [
@@ -415,9 +406,9 @@ export const ENTERPRISE_SERVICES: Record<
       {
         value: '1',
         label: {
-          fr: 'Interlocuteur RMA dédié aux RH',
-          en: 'Dedicated RMA contact for HR',
-          ar: 'مسؤول RMA مخصص للموارد البشرية',
+          fr: 'Interlocuteur AMEKRAN dédié aux RH',
+          en: 'Dedicated AMEKRAN contact for HR',
+          ar: 'مسؤول AMEKRAN مخصص للموارد البشرية',
         },
       },
     ],
@@ -482,9 +473,9 @@ export const ENTERPRISE_SERVICES: Record<
           ar: 'مواكبة التصريحات',
         },
         body: {
-          fr: 'Aide au dossier : déclaration, certificat médical initial, bulletins de soins et échanges avec RMA.',
-          en: 'File support: declaration, initial medical certificate, treatment records and exchanges with RMA.',
-          ar: 'مساعدة في الملف: التصريح والشهادة الطبية الأولية ووصفات العلاج والمراسلات مع RMA.',
+          fr: 'Aide au dossier : déclaration, certificat médical initial, bulletins de soins et échanges avec AMEKRAN.',
+          en: 'File support: declaration, initial medical certificate, treatment records and exchanges with AMEKRAN.',
+          ar: 'مساعدة في الملف: التصريح والشهادة الطبية الأولية ووصفات العلاج والمراسلات مع AMEKRAN.',
         },
       },
       {
@@ -533,9 +524,9 @@ export const ENTERPRISE_SERVICES: Record<
           ar: 'التصريح خلال 48 ساعة',
         },
         body: {
-          fr: 'L’employeur déclare à la CNSS et à RMA. Notre agence vérifie le dossier et transmet les pièces utiles.',
-          en: 'The employer declares to the CNSS and RMA. Our agency checks the file and forwards the relevant documents.',
-          ar: 'يصرّح رب العمل لدى CNSS وRMA. تتحقق وكالتنا من الملف وتحيل الوثائق اللازمة.',
+          fr: 'L’employeur déclare à la CNSS et à AMEKRAN. Notre agence vérifie le dossier et transmet les pièces utiles.',
+          en: 'The employer declares to the CNSS and AMEKRAN. Our agency checks the file and forwards the relevant documents.',
+          ar: 'يصرّح رب العمل لدى CNSS وAMEKRAN. تتحقق وكالتنا من الملف وتحيل الوثائق اللازمة.',
         },
       },
       {
@@ -601,7 +592,6 @@ export const ENTERPRISE_SERVICES: Record<
         },
       },
     ],
-    rmaHref: RMA_ENTERPRISE_URL,
   },
   'poids-lourds': {
     id: 'poids-lourds',
@@ -634,9 +624,9 @@ export const ENTERPRISE_SERVICES: Record<
       ar: 'حلول عالية الأداء لناقلي البضائع والأساطيل الكبرى.',
     },
     summary: {
-      fr: 'Tracteurs, remorques, porteurs et flottes TIR : AMEKRAN construit avec RMA un contrat lisible pour votre exploitation, avec Carte Verte internationale, extensions géographiques et gestion prioritaire des sinistres au départ de Tanger Med.',
-      en: 'Tractors, trailers, rigids and TIR fleets: AMEKRAN builds a clear RMA policy for your operation, with an international Green Card, territorial extensions and priority claims handling out of Tanger Med.',
-      ar: 'الجرارات والمقطورات والشاحنات وأساطيل TIR: تبني AMEKRAN مع RMA عقداً واضحاً لاستغلالكم، مع البطاقة الخضراء الدولية والامتدادات الجغرافية ومعالجة أولوية للحوادث انطلاقاً من طنجة المتوسط.',
+      fr: 'Tracteurs, remorques, porteurs et flottes TIR : AMEKRAN construit avec AMEKRAN un contrat lisible pour votre exploitation, avec Carte Verte internationale, extensions géographiques et gestion prioritaire des sinistres au départ de Tanger Med.',
+      en: 'Tractors, trailers, rigids and TIR fleets: AMEKRAN builds a clear AMEKRAN policy for your operation, with an international Green Card, territorial extensions and priority claims handling out of Tanger Med.',
+      ar: 'الجرارات والمقطورات والشاحنات وأساطيل TIR: تبني AMEKRAN مع AMEKRAN عقداً واضحاً لاستغلالكم، مع البطاقة الخضراء الدولية والامتدادات الجغرافية ومعالجة أولوية للحوادث انطلاقاً من طنجة المتوسط.',
     },
     heroPoints: [
       {
@@ -667,9 +657,9 @@ export const ENTERPRISE_SERVICES: Record<
       {
         value: '24/7',
         label: {
-          fr: 'Assistance RMA pour vos véhicules',
-          en: 'RMA assistance for your vehicles',
-          ar: 'مساعدة RMA لمركباتكم',
+          fr: 'Assistance AMEKRAN pour vos véhicules',
+          en: 'AMEKRAN assistance for your vehicles',
+          ar: 'مساعدة AMEKRAN لمركباتكم',
         },
       },
       {
@@ -861,7 +851,6 @@ export const ENTERPRISE_SERVICES: Record<
         },
       },
     ],
-    rmaHref: RMA_ENTERPRISE_URL,
   },
   maritime: {
     id: 'maritime',
@@ -889,14 +878,14 @@ export const ENTERPRISE_SERVICES: Record<
       ar: 'أمّنوا شحناتكم وبضائعكم عبر طنجة المتوسط.',
     },
     tagline: {
-      fr: 'Import-export, transit et avaries : l’expertise RMA au service de vos flux.',
-      en: 'Import-export, transit and cargo damage: RMA expertise for your flows.',
-      ar: 'الاستيراد والتصدير والعبور وأضرار البضائع: خبرة RMA في خدمة تدفقاتكم.',
+      fr: 'Import-export, transit et avaries : l’expertise AMEKRAN au service de vos flux.',
+      en: 'Import-export, transit and cargo damage: AMEKRAN expertise for your flows.',
+      ar: 'الاستيراد والتصدير والعبور وأضرار البضائع: خبرة AMEKRAN في خدمة تدفقاتكم.',
     },
     summary: {
-      fr: 'Conteneurs, vrac, marchandises diverses et corps de navire : AMEKRAN structure avec RMA une couverture maritime adaptée à vos trajets, de l’embarquement à la livraison, avec un appui local pour les avaries à Tanger Med.',
-      en: 'Containers, bulk, general cargo and hulls: AMEKRAN structures RMA marine cover around your routes, from loading to delivery, with local support for cargo damage at Tanger Med.',
-      ar: 'الحاويات والبضائع السائبة والمتنوعة وهياكل السفن: تبني AMEKRAN مع RMA تغطية بحرية ملائمة لمساراتكم، من الشحن إلى التسليم، بدعم محلي لأضرار البضائع بطنجة المتوسط.',
+      fr: 'Conteneurs, vrac, marchandises diverses et corps de navire : AMEKRAN structure avec AMEKRAN une couverture maritime adaptée à vos trajets, de l’embarquement à la livraison, avec un appui local pour les avaries à Tanger Med.',
+      en: 'Containers, bulk, general cargo and hulls: AMEKRAN structures AMEKRAN marine cover around your routes, from loading to delivery, with local support for cargo damage at Tanger Med.',
+      ar: 'الحاويات والبضائع السائبة والمتنوعة وهياكل السفن: تبني AMEKRAN مع AMEKRAN تغطية بحرية ملائمة لمساراتكم، من الشحن إلى التسليم، بدعم محلي لأضرار البضائع بطنجة المتوسط.',
     },
     heroPoints: [
       {
@@ -1121,13 +1110,7 @@ export const ENTERPRISE_SERVICES: Record<
         },
       },
     ],
-    rmaHref: RMA_ENTERPRISE_URL,
   },
-};
-
-export const ENTERPRISE_PORTAL_LINK = {
-  href: RMA_ENTERPRISE_URL,
-  label: ENTERPRISE_PORTAL_LABEL,
 };
 
 export const ENTERPRISE_SERVICE_LIST = Object.values(ENTERPRISE_SERVICES);

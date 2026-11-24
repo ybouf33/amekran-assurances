@@ -534,7 +534,7 @@ export interface ClientPolicyRecord {
 
 export const DEMO_CLIENT_POLICIES: ClientPolicyRecord[] = [
   {
-    policyNumber: 'RMA-TNG-2026-4812',
+    policyNumber: 'AMEKRAN-TNG-2026-4812',
     holderName: 'Karim El Amrani',
     solutionTitle: {
       fr: 'Automobile — Tous Risques',
@@ -551,7 +551,7 @@ export const DEMO_CLIENT_POLICIES: ClientPolicyRecord[] = [
     agencyCity: 'Tanger',
   },
   {
-    policyNumber: 'RMA-FLT-2025-1094',
+    policyNumber: 'AMEKRAN-FLT-2025-1094',
     holderName: 'TransNord Logistique SARL',
     solutionTitle: {
       fr: 'Poids lourds & Flottes TIR',
@@ -568,7 +568,7 @@ export const DEMO_CLIENT_POLICIES: ClientPolicyRecord[] = [
     agencyCity: 'Tanger',
   },
   {
-    policyNumber: 'RMA-SNT-2026-7721',
+    policyNumber: 'AMEKRAN-SNT-2026-7721',
     holderName: 'Clinique Détroit',
     solutionTitle: {
       fr: 'Santé & AMC CNSS Groupe',
@@ -587,9 +587,14 @@ export const DEMO_CLIENT_POLICIES: ClientPolicyRecord[] = [
 ];
 
 export function lookupClientPolicy(query: string): ClientPolicyRecord | null {
-  const cleaned = query.trim().toUpperCase();
-  if (!cleaned) return null;
+  const raw = query.trim().toUpperCase();
+  if (!raw) return null;
+  const normalized = raw.replace(/^RMA-/, 'AMEKRAN-');
   return (
-    DEMO_CLIENT_POLICIES.find((p) => p.policyNumber.toUpperCase() === cleaned) ?? null
+    DEMO_CLIENT_POLICIES.find(
+      (p) =>
+        p.policyNumber.toUpperCase() === raw ||
+        p.policyNumber.toUpperCase() === normalized
+    ) ?? null
   );
 }

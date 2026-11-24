@@ -12,22 +12,22 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   if (locale === 'ar') {
     return {
-      title: 'تأمين الشركات والمهنيين بطنجة | وكيل عام RMA Assurance - AMEKRAN',
+      title: 'تأمين الشركات والمهنيين بطنجة | وكيل عام AMEKRAN Assurances - AMEKRAN',
       description:
-        'حلول تأمين الشركات والمصانع والمقرات في طنجة: متعدد المخاطر المهنية، المسؤولية المدنية، خسارة النشاط وتأمين المعدات عبر RMA.',
+        'حلول تأمين الشركات والمصانع والمقرات في طنجة: متعدد المخاطر المهنية، المسؤولية المدنية، خسارة النشاط وتأمين المعدات عبر AMEKRAN.',
     };
   }
   if (locale === 'en') {
     return {
-      title: 'Business & Commercial Insurance in Tangier | RMA Agent AMEKRAN',
+      title: 'Business & Commercial Insurance in Tangier | AMEKRAN Agent AMEKRAN',
       description:
-        'Comprehensive business and commercial cover in Tangier: property, general liability, machinery breakdown and business interruption with RMA.',
+        'Comprehensive business and commercial cover in Tangier: property, general liability, machinery breakdown and business interruption with AMEKRAN.',
     };
   }
   return {
-    title: 'Assurance Entreprises & Professionnels à Tanger | Agent Général RMA AMEKRAN',
+    title: 'Assurance Entreprises & Professionnels à Tanger | AMEKRAN Assurances AMEKRAN',
     description:
-      'Protection sur mesure pour entreprises, PME et industriels à Tanger : multirisque professionnelle, RC exploitation, bris de machine et perte d’exploitation avec RMA.',
+      'Protection sur mesure pour entreprises, PME et industriels à Tanger : multirisque professionnelle, RC exploitation, bris de machine et perte d’exploitation avec AMEKRAN.',
   };
 }
 

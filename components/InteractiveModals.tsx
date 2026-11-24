@@ -267,9 +267,9 @@ function QuoteModalContent({
                 <span className="text-slate-600 font-medium">
                   {t3(
                     lang,
-                    'Tarification officielle RMA :',
-                    'Official RMA pricing:',
-                    'التسعيرة الرسمية لـ RMA:'
+                    'Tarification officielle AMEKRAN :',
+                    'Official AMEKRAN pricing:',
+                    'التسعيرة الرسمية لـ AMEKRAN:'
                   )}
                 </span>
                 <span className="font-bold text-[#0B1E40]">
@@ -541,9 +541,9 @@ function ClientPortalContent({
   onClose: () => void;
   onRequestRenewal: () => void;
 }) {
-  const [policyInput, setPolicyInput] = useState('RMA-TNG-2026-4812');
+  const [policyInput, setPolicyInput] = useState('AMEKRAN-TNG-2026-4812');
   const [foundPolicy, setFoundPolicy] = useState<ClientPolicyRecord | null>(() =>
-    lookupClientPolicy('RMA-TNG-2026-4812')
+    lookupClientPolicy('AMEKRAN-TNG-2026-4812')
   );
   const [searched, setSearched] = useState(false);
 
@@ -593,7 +593,7 @@ function ClientPortalContent({
               type="text"
               value={policyInput}
               onChange={(e) => setPolicyInput(e.target.value)}
-              placeholder="RMA-TNG-2026-4812"
+              placeholder="AMEKRAN-TNG-2026-4812"
               className="flex-1 rounded-xl border border-slate-300 px-3 py-2 text-sm font-semibold text-[#0B1E40] uppercase tabular-nums focus:outline-none focus:ring-2 focus:ring-[#D99E26]"
             />
             <button
