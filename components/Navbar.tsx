@@ -35,6 +35,7 @@ export default function Navbar({
 }: NavbarProps) {
   const [openDropdown, setOpenDropdown] = useState<'particuliers' | 'entreprises' | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileGroup, setMobileGroup] = useState<'particuliers' | 'entreprises' | null>(null);
   const navRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -262,21 +263,28 @@ export default function Navbar({
           </button>
         </div>
 
-        {/* Mobile left active pill + menu button */}
-        <div className="flex lg:hidden items-center gap-2">
+        {/* Mobile: menu toggle + active section pill */}
+        <div className="flex lg:hidden items-center gap-1.5 sm:gap-2 min-w-0 flex-1">
           <button
             type="button"
-            onClick={() => setMobileMenuOpen((prev) => !prev)}
+            onClick={() => {
+              setMobileGroup(null);
+              setMobileMenuOpen((prev) => !prev);
+            }}
             aria-expanded={mobileMenuOpen}
             aria-label={mobileMenuOpen ? t3(lang, 'Fermer le menu', 'Close menu', 'إغلاق القائمة') : t3(lang, 'Ouvrir le menu', 'Open menu', 'فتح القائمة')}
-            className="inline-flex items-center justify-center w-10 h-10 rounded-lg border border-slate-200 text-[#0B1E40] hover:bg-slate-100 transition-colors"
+            className="inline-flex items-center justify-center w-11 h-11 sm:w-12 sm:h-12 rounded-xl border border-slate-200 text-[#0B1E40] hover:bg-slate-100 active:scale-95 transition-all shrink-0"
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
           <button
             type="button"
-            onClick={onSelectHome}
-            className="px-4 py-1.5 rounded-full text-xs font-bold bg-gold-pill text-[#0B1E40] shadow-sm whitespace-nowrap"
+            onClick={() => {
+              setMobileMenuOpen(false);
+              setMobileGroup(null);
+              onSelectHome();
+            }}
+            className="px-3 sm:px-4 py-2 rounded-full text-[11px] sm:text-xs font-bold bg-gold-pill text-[#0B1E40] shadow-sm whitespace-nowrap min-h-[44px] shrink-0"
           >
             {t3(lang, 'Accueil', 'Home', 'الرئيسية')}
           </button>
@@ -289,47 +297,129 @@ export default function Navbar({
           onClick={() => {
             setOpenDropdown(null);
             setMobileMenuOpen(false);
+            setMobileGroup(null);
           }}
-          className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1.5 rounded-full border-[1.5px] border-[#D99E26] bg-[#FFFDF7] hover:bg-[#FEF4D8] text-[#0B1E40] text-xs sm:text-[13.5px] font-bold shadow-sm transition-colors whitespace-nowrap shrink-0 cursor-pointer min-h-[36px]"
+          className="inline-flex items-center gap-2 px-3 sm:px-4 py-2 rounded-full border-[1.5px] border-[#D99E26] bg-[#FFFDF7] hover:bg-[#FEF4D8] text-[#0B1E40] text-[11px] sm:text-[13.5px] font-bold shadow-sm transition-colors whitespace-nowrap shrink-0 cursor-pointer min-h-[44px]"
         >
           <User className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#0B1E40] fill-[#0B1E40]" />
-          <span>{t3(lang, 'Espace client', 'Client Portal', 'فضاء الزبون')}</span>
+          <span className="hidden sm:inline">{t3(lang, 'Espace client', 'Client Portal', 'فضاء الزبون')}</span>
+          <span className="sm:hidden">{t3(lang, 'Espace', 'Portal', 'فضاء')}</span>
         </a>
       </div>
 
-      {/* Mobile Collapsible Drawer */}
+      {/* Mobile Collapsible Drawer — mirrors all desktop navigation options */}
       {mobileMenuOpen && (
         <div
           data-gsap-drawer
-          className="lg:hidden border-t border-slate-200 bg-white px-4 py-3 space-y-2 shadow-lg"
+          className="lg:hidden border-t border-slate-200 bg-white px-3 sm:px-4 py-3 sm:py-4 space-y-1.5 max-h-[calc(100dvh-60px)] overflow-y-auto overscroll-contain shadow-lg"
         >
-          <div className="grid grid-cols-2 gap-2">
-            {INSURANCE_SOLUTIONS.map((sol) => (
-              <button
-                key={sol.id}
-                type="button"
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  onSelectSolution(sol.id);
-                }}
-                className="text-left px-3 py-2.5 rounded-xl bg-slate-50 hover:bg-[#FFF7E2] border border-slate-200/80 text-xs font-bold text-[#0B1E40] min-h-[44px]"
-              >
-                {sol.title[lang]}
-              </button>
-            ))}
-          </div>
-          <div className="flex items-center gap-2 pt-1">
+          {/* Client portal — full link on mobile */}
+          <a
+            href={`/${lang}#espace-client`}
+            onClick={() => {
+              setMobileMenuOpen(false);
+              setMobileGroup(null);
+            }}
+            className="flex items-center gap-2.5 w-full px-3.5 py-3 rounded-xl bg-[#FFFDF7] border-[1.5px] border-[#D99E26] text-[#0B1E40] text-sm font-bold min-h-[48px]"
+          >
+            <User className="w-4 h-4 fill-[#0B1E40]" aria-hidden="true" />
+            {t3(lang, 'Espace client', 'Client Portal', 'فضاء الزبون')}
+          </a>
+
+          {/* Particuliers — expandable, same solutions as desktop dropdown */}
+          <div className="rounded-xl border border-slate-200/80 overflow-hidden">
             <button
               type="button"
-              onClick={() => {
-                setMobileMenuOpen(false);
-                onOpenContact();
-              }}
-              className="flex-1 py-2.5 px-3 rounded-xl bg-[#0B1E40] text-xs font-bold text-white min-h-[44px]"
+              aria-expanded={mobileGroup === 'particuliers'}
+              onClick={() => setMobileGroup((p) => p === 'particuliers' ? null : 'particuliers')}
+              className={`w-full flex items-center justify-between gap-2 px-3.5 py-3 text-start text-sm font-bold min-h-[48px] transition-colors ${activeNav === 'particuliers' ? 'bg-[#FFF5DA] text-[#0B1E40]' : 'text-[#0B1E40] hover:bg-slate-50'}`}
             >
-              {t3(lang, 'Contact Tanger', 'Tangier Contact', 'اتصل بنا - طنجة')}
+              <span>{t3(lang, 'Particuliers', 'Individuals', 'الأفراد')}</span>
+              <ChevronDown className={`w-4 h-4 shrink-0 transition-transform duration-200 ${mobileGroup === 'particuliers' ? 'rotate-180' : ''}`} />
             </button>
+            {mobileGroup === 'particuliers' && (
+              <div className="border-t border-slate-200/80 bg-slate-50/60 px-2 py-1.5">
+                {particuliersItems.map((item) => (
+                  <button
+                    key={item.id}
+                    type="button"
+                    onClick={() => {
+                      setMobileMenuOpen(false);
+                      setMobileGroup(null);
+                      onSelectSolution(item.id);
+                    }}
+                    className="w-full text-start px-2.5 py-2.5 rounded-lg hover:bg-[#FFF7E2] transition-colors min-h-[48px]"
+                  >
+                    <span className="block text-[13px] font-bold text-[#0B1E40]">{item.title[lang]}</span>
+                    <span className="block text-[11px] text-slate-600">{item.subtitle[lang]}</span>
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
+
+          {/* Entreprises — expandable, same solutions as desktop dropdown */}
+          <div className="rounded-xl border border-slate-200/80 overflow-hidden">
+            <button
+              type="button"
+              aria-expanded={mobileGroup === 'entreprises'}
+              onClick={() => setMobileGroup((p) => p === 'entreprises' ? null : 'entreprises')}
+              className={`w-full flex items-center justify-between gap-2 px-3.5 py-3 text-start text-sm font-bold min-h-[48px] transition-colors ${activeNav === 'entreprises' ? 'bg-[#FFF5DA] text-[#0B1E40]' : 'text-[#0B1E40] hover:bg-slate-50'}`}
+            >
+              <span>{t3(lang, 'Entreprises', 'Business', 'الشركات')}</span>
+              <ChevronDown className={`w-4 h-4 shrink-0 transition-transform duration-200 ${mobileGroup === 'entreprises' ? 'rotate-180' : ''}`} />
+            </button>
+            {mobileGroup === 'entreprises' && (
+              <div className="border-t border-slate-200/80 bg-slate-50/60 px-2 py-1.5">
+                {entreprisesItems.map((item) => (
+                  <button
+                    key={item.id}
+                    type="button"
+                    onClick={() => {
+                      setMobileMenuOpen(false);
+                      setMobileGroup(null);
+                      onSelectSolution(item.id);
+                    }}
+                    className="w-full text-start px-2.5 py-2.5 rounded-lg hover:bg-[#FFF7E2] transition-colors min-h-[48px]"
+                  >
+                    <span className="block text-[13px] font-bold text-[#0B1E40]">{item.title[lang]}</span>
+                    <span className="block text-[11px] text-slate-600">{item.subtitle[lang]}</span>
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
+
+          {/* Quick call links — both numbers, always reachable on mobile */}
+          <div className="grid grid-cols-2 gap-2 pt-0.5">
+            <a
+              href="tel:0531400500"
+              className="inline-flex items-center justify-center gap-2 px-3 py-2.5 rounded-xl bg-slate-50 border border-slate-200/80 text-[#0B1E40] text-[12px] font-bold tabular-nums min-h-[48px]"
+            >
+              <span className="w-1.5 h-1.5 rounded-full bg-[#D99E26] shrink-0" aria-hidden="true" />
+              0531 400 500
+            </a>
+            <a
+              href="tel:0661508925"
+              className="inline-flex items-center justify-center gap-2 px-3 py-2.5 rounded-xl bg-slate-50 border border-slate-200/80 text-[#0B1E40] text-[12px] font-bold tabular-nums min-h-[48px]"
+            >
+              <span className="w-1.5 h-1.5 rounded-full bg-[#D99E26] shrink-0" aria-hidden="true" />
+              0661 50 89 25
+            </a>
+          </div>
+
+          {/* Contact */}
+          <button
+            type="button"
+            onClick={() => {
+              setMobileMenuOpen(false);
+              setMobileGroup(null);
+              onOpenContact();
+            }}
+            className={`w-full px-3.5 py-3 rounded-xl text-start text-sm font-bold min-h-[48px] transition-colors ${activeNav === 'contact' ? 'bg-[#FFF5DA] text-[#0B1E40]' : 'text-[#0B1E40] hover:bg-slate-50'}`}
+          >
+            {t3(lang, 'Contact', 'Contact', 'اتصل بنا')}
+          </button>
         </div>
       )}
     </nav>

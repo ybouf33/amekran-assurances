@@ -1,9 +1,9 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, type SVGProps } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Check, ChevronDown, Globe, MapPin, Phone } from 'lucide-react';
+import { Check, ChevronDown, Globe, MapPin, Smartphone } from 'lucide-react';
 import { AnimatePresence, motion } from 'motion/react';
 import crestImg from '@/src/assets/images/amekran_lion_crest_1794661933343.png';
 import { t3, type Language } from '@/lib/insurance';
@@ -14,6 +14,30 @@ interface TopHeaderProps {
   onChangeLang?: (lang: Language) => void;
   onOpenContact: () => void;
   logoHref?: string;
+}
+
+/** Landline (fixed) phone icon — a classic desk handset, distinct from the mobile icon. */
+function PhoneLandlineIcon({
+  className,
+  ...props
+}: SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={1.9}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      {...props}
+    >
+      <rect x="2.75" y="14.5" width="18.5" height="6" rx="1.6" />
+      <path d="M5.5 14.5v-2.2a6.5 6.5 0 0 1 13 0v2.2" opacity="0.55" />
+      <path d="M9.6 9.9h4.8" opacity="0.55" />
+      <path d="M7 17h10" opacity="0.35" />
+    </svg>
+  );
 }
 
 const LANGUAGE_OPTIONS: {
@@ -61,14 +85,14 @@ export default function TopHeader({
     LANGUAGE_OPTIONS.find((item) => item.code === lang) ?? LANGUAGE_OPTIONS[0];
 
   return (
-    <div className="relative z-50 bg-gradient-to-r from-[#051129] via-[#091D42] to-[#06132E] text-white border-b border-[#D99E26]/35 shrink-0">
+    <div className="group/header relative z-50 bg-gradient-to-r from-[#051129] via-[#091D42] to-[#06132E] text-white border-b border-[#D99E26]/35 shrink-0 transition-[background-color,border-color,box-shadow] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]">
       {/* Contained atmospheric sapphire glow & sculpted metallic gold swoosh */}
       <div
         aria-hidden="true"
         className="pointer-events-none select-none absolute inset-0 overflow-hidden"
       >
         <svg
-          viewBox="0 0 1440 60"
+          viewBox="0 0 1440 76"
           preserveAspectRatio="none"
           className="hidden md:block w-full h-full"
         >
@@ -116,37 +140,37 @@ export default function TopHeader({
             </linearGradient>
           </defs>
 
-          <rect width="1440" height="60" fill="url(#topBarGlow)" />
-          <rect width="1440" height="60" fill="url(#topBarGoldHalo)" />
+          <rect width="1440" height="76" fill="url(#topBarGlow)" />
+          <rect width="1440" height="76" fill="url(#topBarGoldHalo)" />
 
           {/* Soft ambient gold halo beneath the primary crescent swoosh */}
           <path
-            d="M 526 60 C 572 47, 604 24, 632 0 L 664 0 C 625 27, 581 50, 526 60 Z"
+            d="M 526 76 C 572 60, 604 31, 632 0 L 664 0 C 625 34, 581 64, 526 76 Z"
             fill="#F4C756"
             opacity="0.16"
           />
 
           {/* Primary sculpted metallic gold crescent swoosh */}
           <path
-            d="M 530 60 C 574 47, 606 24, 634 0 L 660 0 C 623 26, 580 49, 530 60 Z"
+            d="M 530 76 C 574 60, 606 31, 634 0 L 660 0 C 623 33, 580 63, 530 76 Z"
             fill="url(#topBarGoldBlade)"
           />
 
           {/* Specular bright upper-edge sheen for luxury metallic depth */}
           <path
-            d="M 548 56 C 584 43, 613 22, 636 0 L 647 0 C 620 22, 588 43, 548 56 Z"
+            d="M 548 71 C 584 55, 613 28, 636 0 L 647 0 C 620 28, 588 55, 548 71 Z"
             fill="url(#topBarGoldSheen)"
           />
 
           {/* Fine companion gold silk filaments */}
           <path
-            d="M 556 60 C 674 30, 845 36, 1110 0"
+            d="M 556 76 C 674 38, 845 46, 1110 0"
             fill="none"
             stroke="url(#topBarRibbon)"
             strokeWidth="1.15"
           />
           <path
-            d="M 615 60 C 755 34, 920 44, 1190 6"
+            d="M 615 76 C 755 43, 920 56, 1190 8"
             fill="none"
             stroke="url(#topBarRibbon)"
             strokeOpacity="0.42"
@@ -155,19 +179,19 @@ export default function TopHeader({
         </svg>
       </div>
 
-      <div className="relative z-10 max-w-[1380px] mx-auto px-3 sm:px-6 lg:px-8 h-16 sm:h-[68px] lg:h-[74px] flex items-center justify-between gap-3">
+      <div className="relative z-10 max-w-[1440px] mx-auto px-2.5 sm:px-5 lg:px-6 h-[72px] sm:h-[86px] lg:h-[92px] flex items-center justify-between gap-2 lg:gap-3 transition-[opacity,transform] duration-300 ease-out group-data-[hidden=true]/header:opacity-0 group-data-[hidden=true]/header:-translate-y-1">
         {/* Left: Brand Lockup & Unified Agency Heritage */}
-        <div className="flex items-center gap-3.5 sm:gap-5 min-w-0">
+        <div className="flex items-center gap-2.5 lg:gap-4 min-w-0">
           <Link
             href={logoHref}
-            className="flex items-center gap-2.5 sm:gap-3.5 shrink-0 group focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F4CB64] rounded-lg"
+            className="flex items-center gap-1.5 sm:gap-3.5 shrink-0 group focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F4CB64] rounded-lg"
           >
-            <div className="relative w-11 h-11 sm:w-13 sm:h-13 lg:w-14 lg:h-14 shrink-0 transition-transform duration-200 group-hover:scale-105">
+            <div className="relative w-10 h-10 sm:w-15 sm:h-15 lg:w-16 lg:h-16 shrink-0 transition-transform duration-200 group-hover:scale-105">
               <Image
                 src={crestImg}
                 alt="Amekran Assurances"
                 fill
-                sizes="56px"
+                sizes="64px"
                 priority
                 referrerPolicy="no-referrer"
                 className="object-contain drop-shadow-[0_2px_12px_rgba(244,203,100,0.38)]"
@@ -175,12 +199,12 @@ export default function TopHeader({
             </div>
             <div className="flex flex-col leading-none">
               <span
-                className="text-[16px] sm:text-[19px] lg:text-[21px] font-bold tracking-[0.08em] text-white whitespace-nowrap"
+                className="text-[15px] sm:text-[20px] lg:text-[23px] font-bold tracking-[0.08em] text-white whitespace-nowrap"
                 style={{ fontFamily: 'var(--font-serif-brand)' }}
               >
                 AMEKRAN
               </span>
-              <span className="text-[9px] sm:text-[10px] lg:text-[10.5px] font-semibold tracking-[0.3em] text-[#F2CA63] uppercase mt-0.5 whitespace-nowrap">
+              <span className="text-[9px] sm:text-[10px] lg:text-[11px] font-semibold tracking-[0.3em] text-[#F2CA63] uppercase mt-0.5 whitespace-nowrap">
                 ASSURANCES
               </span>
             </div>
@@ -188,7 +212,7 @@ export default function TopHeader({
 
           <span
             aria-hidden="true"
-            className="hidden md:block h-8 w-px bg-gradient-to-b from-transparent via-[#F4CB64]/40 to-transparent shrink-0"
+            className="hidden lg:block h-9 w-px bg-gradient-to-b from-transparent via-[#F4CB64]/40 to-transparent shrink-0"
           />
 
           {/* AMEKRAN Assurances — parent brand & General Agent marker */}
@@ -202,21 +226,11 @@ export default function TopHeader({
                   : 'AMEKRAN Assurances General Agent in Tangier'
             }
           >
-            <span className="inline-flex items-center rounded-md bg-white px-2.5 py-1.5 shadow-[0_1px_12px_rgba(0,0,0,0.3)]">
-              <Image
-                src="/rma-logo.png"
-                alt="RMA Royale Marocaine d'Assurance - Agent Général"
-                width={300}
-                height={100}
-                sizes="(max-width: 1024px) 85px, 110px"
-                className="h-5 sm:h-6 lg:h-7 w-auto object-contain"
-              />
-            </span>
             <div className="flex flex-col leading-tight">
-              <span className="text-[9.5px] lg:text-[10.5px] font-semibold tracking-[0.14em] uppercase text-slate-300/85 whitespace-nowrap">
+              <span className="hidden lg:inline text-[10px] xl:text-[11px] font-semibold tracking-[0.14em] uppercase text-slate-300/85 whitespace-nowrap">
                 {t3(lang, 'AMEKRAN Assurances', 'AMEKRAN Assurances', 'AMEKRAN للتأمين')}
               </span>
-              <span className="text-[12px] lg:text-[13.5px] font-bold tracking-tight text-[#F6D36E] whitespace-nowrap">
+              <span className="text-[12px] xl:text-[14px] font-bold tracking-tight text-[#F6D36E] whitespace-nowrap">
                 {t3(lang, 'Tanger · 20 ans d’expertise', 'Tangier · 20 years of expertise', 'طنجة · 20 سنة من الخبرة')}
               </span>
             </div>
@@ -224,23 +238,37 @@ export default function TopHeader({
         </div>
 
         {/* Right: Quick Contact Actions & Language Dropdown */}
-        <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+        <div className="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
           <a
-            href="tel:0661508925"
-            className="flex items-center gap-2 px-3 sm:px-3.5 py-1.5 sm:py-2 rounded-xl bg-white/[0.04] hover:bg-white/[0.1] border border-white/10 hover:border-[#F4CB64]/45 text-xs sm:text-[14px] font-semibold text-white hover:text-[#F8D366] transition-all whitespace-nowrap min-h-[40px] sm:min-h-[42px] focus-visible:outline-2 focus-visible:outline-[#F4CB64]"
-            aria-label="Appeler le 0661 50 89 25"
+            href="tel:0531400500"
+            className="flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3.5 py-2 rounded-xl bg-white/[0.04] hover:bg-white/[0.1] border border-white/10 hover:border-[#F4CB64]/45 text-[11.5px] sm:text-[14px] font-semibold text-white hover:text-[#F8D366] transition-all whitespace-nowrap min-h-[44px] sm:min-h-[48px] focus-visible:outline-2 focus-visible:outline-[#F4CB64]"
+            aria-label="Appeler le 0531 400 500 — ligne fixe"
           >
-            <Phone
+            <PhoneLandlineIcon
               className="w-4 h-4 text-[#F2CA63] shrink-0"
               aria-hidden="true"
             />
-            <span className="tabular-nums font-bold">0661 50 89 25</span>
+            <span className="tabular-nums font-bold hidden sm:inline">0531 400 500</span>
+            <span className="tabular-nums font-bold sm:hidden">Fixe</span>
+          </a>
+
+          <a
+            href="tel:0661508925"
+            className="hidden sm:flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3.5 py-2 rounded-xl bg-white/[0.04] hover:bg-white/[0.1] border border-white/10 hover:border-[#F4CB64]/45 text-[11.5px] sm:text-[14px] font-semibold text-white hover:text-[#F8D366] transition-all whitespace-nowrap min-h-[44px] sm:min-h-[48px] focus-visible:outline-2 focus-visible:outline-[#F4CB64]"
+            aria-label="Appeler le 0661 50 89 25"
+          >
+            <Smartphone
+              className="w-4 h-4 text-[#F2CA63] shrink-0"
+              aria-hidden="true"
+            />
+            <span className="tabular-nums font-bold hidden xl:inline">0661 50 89 25</span>
+            <span className="tabular-nums font-bold xl:hidden">Mobile</span>
           </a>
 
           <button
             type="button"
             onClick={onOpenContact}
-            className="hidden sm:flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-white/[0.04] hover:bg-white/[0.1] border border-white/10 hover:border-[#F4CB64]/45 text-[14px] font-medium text-slate-100 hover:text-[#F8D366] transition-all whitespace-nowrap min-h-[42px] cursor-pointer focus-visible:outline-2 focus-visible:outline-[#F4CB64]"
+            className="hidden 2xl:flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-white/[0.04] hover:bg-white/[0.1] border border-white/10 hover:border-[#F4CB64]/45 text-[14px] font-medium text-slate-100 hover:text-[#F8D366] transition-all whitespace-nowrap min-h-[48px] cursor-pointer focus-visible:outline-2 focus-visible:outline-[#F4CB64]"
           >
             <MapPin
               className="w-4 h-4 text-[#F2CA63] shrink-0"
@@ -267,7 +295,7 @@ export default function TopHeader({
                   : `Change language (${currentLang.label})`
               }
               onClick={() => setLangOpen((prev) => !prev)}
-              className={`inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-xl border text-xs sm:text-[13.5px] font-bold tracking-wide transition-all whitespace-nowrap min-h-[40px] sm:min-h-[42px] cursor-pointer focus-visible:outline-2 focus-visible:outline-[#F4CB64] ${langOpen
+              className={`inline-flex items-center gap-1 px-2 sm:gap-1.5 sm:px-3 py-2 rounded-xl border text-xs sm:text-[13.5px] font-bold tracking-wide transition-all whitespace-nowrap min-h-[44px] sm:min-h-[48px] cursor-pointer focus-visible:outline-2 focus-visible:outline-[#F4CB64] ${langOpen
                   ? 'bg-white/[0.15] border-[#F4CB64]/70 text-[#F8D366] shadow-[0_0_12px_rgba(244,203,100,0.2)]'
                   : 'bg-white/[0.07] hover:bg-white/[0.13] border-white/15 hover:border-[#F4CB64]/50 text-white'
                 }`}

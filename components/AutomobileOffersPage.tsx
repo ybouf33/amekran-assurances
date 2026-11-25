@@ -27,6 +27,7 @@ import type { StaticImageData } from 'next/image';
 import TopHeader from '@/components/TopHeader';
 import Navbar, { type NavSection } from '@/components/Navbar';
 import TrustAndFooter from '@/components/TrustAndFooter';
+import FloatingContactWidget from '@/components/FloatingContactWidget';
 import ScrollEffects from '@/components/ScrollEffects';
 import GsapInteractions from '@/components/GsapInteractions';
 import SectionHeading from '@/components/SectionHeading';
@@ -1184,6 +1185,7 @@ export default function AutomobileOffersPage({
       />
 
       {/* Same fixed wave footer as the landing page */}
+      <FloatingContactWidget lang={lang} />
       <TrustAndFooter lang={lang} />
 
       <ScrollEffects active={introReady} />

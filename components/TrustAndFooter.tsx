@@ -13,54 +13,35 @@ interface TrustAndFooterProps {
 
 export function AmekranFooterBar({ lang }: { lang: Language }) {
   return (
-    <footer className="relative z-30 px-3 sm:px-4 pb-1.5 sm:pb-2 pt-0.5 lg:pt-1 lg:pb-2.5">
-      <div className="max-w-[1340px] mx-auto flex flex-row items-center justify-between gap-1.5 sm:gap-4 text-white">
+    <footer className="relative z-30 px-4 sm:px-6 pb-2 sm:pb-3 pt-1 sm:pt-1.5 lg:pt-2 lg:pb-3">
+      <div className="max-w-[1340px] mx-auto flex flex-row items-center justify-between gap-2 sm:gap-4 text-white">
         {/* Brand Logo & AMEKRAN Lockup */}
-        <div className="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
-          <div className="relative w-7 h-7 sm:w-8 sm:h-8 shrink-0">
+        <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+          <div className="relative w-9 h-9 sm:w-10 sm:h-10 lg:w-11 lg:h-11 shrink-0">
             <Image
               src={crestImg}
               alt="Amekran Assurances"
               fill
-              sizes="36px"
+              sizes="44px"
               referrerPolicy="no-referrer"
               className="object-contain drop-shadow-sm"
             />
           </div>
-          <div className="flex items-baseline gap-1">
+          <div className="flex items-baseline gap-1.5">
             <span
-              className="text-xs sm:text-[15px] font-bold tracking-[0.08em] text-white"
+              className="text-sm sm:text-[17px] lg:text-[18px] font-bold tracking-[0.08em] text-white"
               style={{ fontFamily: 'var(--font-serif-brand)' }}
             >
               AMEKRAN
             </span>
-            <span className="text-[7.5px] sm:text-[9.5px] font-semibold tracking-[0.2em] text-[#F2CA63] uppercase hidden xs:inline">
+            <span className="text-[9px] sm:text-[11px] font-semibold tracking-[0.2em] text-[#F2CA63] uppercase hidden xs:inline">
               ASSURANCES
-            </span>
-          </div>
-
-          <span
-            aria-hidden="true"
-            className="hidden sm:block h-4 sm:h-5 w-px bg-white/20"
-          />
-
-          {/* RMA Agent Général */}
-          <div className="flex items-center gap-1.5">
-            <span className="inline-flex items-center rounded-md bg-white px-1.5 sm:px-2 py-[3px] sm:py-1 shadow-sm">
-              <Image
-                src="/rma-agent-general-logo.png"
-                alt="RMA Royale Marocaine d'Assurance - Agent Général"
-                width={300}
-                height={100}
-                sizes="100px"
-                className="h-4 sm:h-5 w-auto object-contain"
-              />
             </span>
           </div>
         </div>
 
         {/* Copyright */}
-        <p className="text-[9px] sm:text-[11.5px] text-white/80 whitespace-nowrap shrink-0">
+        <p className="text-[11px] sm:text-[13px] lg:text-[14px] text-white/80 whitespace-nowrap shrink-0">
           {t3(lang, '© 2026 Amekran Assurances.', '© 2026 Amekran Assurances.', '© 2026 AMEKRAN للتأمين.')}
         </p>
       </div>
@@ -155,7 +136,7 @@ export default function TrustAndFooter({
   return (
     <div
       id="site-footer"
-      className="site-footer-root fixed bottom-0 inset-x-0 z-[45] bg-transparent pointer-events-none overflow-hidden h-[88px] sm:h-[102px] lg:h-[118px] flex flex-col justify-end"
+      className="site-footer-root fixed bottom-0 inset-x-0 z-[45] bg-transparent pointer-events-none overflow-hidden h-[104px] sm:h-[118px] lg:h-[136px] flex flex-col justify-end"
     >
       {/* Intro: Full brand logo centered on the splash page (both mobile and desktop) */}
       <div
@@ -172,21 +153,6 @@ export default function TrustAndFooter({
             referrerPolicy="no-referrer"
             className="object-contain drop-shadow-[0_0_46px_rgba(244,203,100,0.5)]"
           />
-        </div>
-
-        {/* Partner — RMA Agent Général */}
-        <div className="site-footer-intro-partner flex items-center justify-center mt-2.5">
-          <span className="inline-flex items-center rounded-lg bg-white px-3 py-1.5 shadow-[0_2px_14px_rgba(0,0,0,0.28)]">
-            <Image
-              src="/rma-agent-general-logo.png"
-              alt="RMA Royale Marocaine d'Assurance - Agent Général"
-              width={300}
-              height={100}
-              priority
-              sizes="120px"
-              className="h-6 sm:h-7.5 w-auto object-contain"
-            />
-          </span>
         </div>
       </div>
 

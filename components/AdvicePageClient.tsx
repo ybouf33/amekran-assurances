@@ -24,6 +24,7 @@ import TopHeader from '@/components/TopHeader';
 import Navbar from '@/components/Navbar';
 import SecondFooter from '@/components/SecondFooter';
 import TrustAndFooter from '@/components/TrustAndFooter';
+import FloatingContactWidget from '@/components/FloatingContactWidget';
 import InteractiveModals, {
   type ActiveModalType,
 } from '@/components/InteractiveModals';
@@ -405,6 +406,7 @@ export default function AdvicePageClient({
         />
       </main>
 
+      <FloatingContactWidget lang={lang} />
       <TrustAndFooter lang={lang} />
 
       <InteractiveModals

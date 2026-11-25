@@ -123,7 +123,7 @@ export default function FooterCurtainIntro({
 
       {/* Splash Footer — starts full-screen, settles into place at bottom */}
       <div
-        className="splash-footer-wave absolute bottom-0 inset-x-0 z-[10] flex flex-col justify-end bg-transparent pointer-events-none overflow-hidden h-[128px] sm:h-[114px] lg:h-[118px]"
+        className="splash-footer-wave absolute bottom-0 inset-x-0 z-[10] flex flex-col justify-end bg-transparent pointer-events-none overflow-hidden h-[144px] sm:h-[130px] lg:h-[136px]"
         style={{
           transform: 'scale(12)',
           transformOrigin: '50% 100%',

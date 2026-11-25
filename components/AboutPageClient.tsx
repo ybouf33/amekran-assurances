@@ -20,6 +20,7 @@ import TopHeader from '@/components/TopHeader';
 import Navbar from '@/components/Navbar';
 import SecondFooter from '@/components/SecondFooter';
 import TrustAndFooter from '@/components/TrustAndFooter';
+import FloatingContactWidget from '@/components/FloatingContactWidget';
 import InteractiveModals, {
   type ActiveModalType,
 } from '@/components/InteractiveModals';
@@ -171,9 +172,21 @@ export default function AboutPageClient({ initialLang = 'fr' }: AboutPageClientP
       <header className="sticky top-0 z-40 shrink-0 bg-white">
         <motion.div
           initial={false}
-          animate={{ height: isScrolled ? 0 : 'auto', opacity: isScrolled ? 0 : 1 }}
-          transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
-          className="overflow-hidden"
+          animate={{
+            height: isScrolled ? 0 : 'auto',
+            opacity: isScrolled ? 0 : 1,
+            y: isScrolled ? -8 : 0,
+          }}
+          transition={{
+            height: { duration: 0.5, ease: [0.22, 1, 0.36, 1] },
+            y: { duration: 0.5, ease: [0.22, 1, 0.36, 1] },
+            opacity: {
+              duration: isScrolled ? 0.3 : 0.42,
+              ease: isScrolled ? [0.4, 0, 1, 1] : [0.16, 1, 0.3, 1],
+              delay: isScrolled ? 0 : 0.06,
+            },
+          }}
+          className={isScrolled ? 'overflow-hidden pointer-events-none' : 'overflow-visible'}
         >
           <TopHeader
             lang={lang}
@@ -819,6 +832,7 @@ export default function AboutPageClient({ initialLang = 'fr' }: AboutPageClientP
         />
       </main>
 
+      <FloatingContactWidget lang={lang} />
       <TrustAndFooter lang={lang} />
 
       <InteractiveModals

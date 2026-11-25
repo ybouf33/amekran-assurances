@@ -71,18 +71,18 @@ export default function SecondFooter({
         />
       </div>
 
-      <div className="relative z-10 max-w-[1160px] w-full mx-auto px-4 sm:px-6 lg:px-8 pt-6 sm:pt-10 pb-[95px] sm:pb-[115px] lg:pb-[140px]">
+      <div className="relative z-10 max-w-[1280px] w-full mx-auto px-4 sm:px-6 lg:px-8 pt-9 sm:pt-14 pb-[112px] sm:pb-[132px] lg:pb-[158px]">
         {/* Responsive 4-column links: 2 columns on mobile, 4 columns on desktop */}
         <div
           data-gsap-reveal
-          className="grid grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-6 sm:gap-6 lg:gap-10"
+          className="grid grid-cols-2 lg:grid-cols-4 gap-x-5 gap-y-8 sm:gap-8 lg:gap-12"
         >
           {/* Column 1: Nos offres */}
           <div data-gsap-item>
-            <h3 className="text-[13.5px] sm:text-[15px] font-bold text-[#142554] mb-2.5 sm:mb-4">
+            <h3 className="text-[15px] sm:text-[17px] lg:text-[18px] font-bold text-[#142554] mb-3 sm:mb-5">
               {t3(lang, 'Nos offres :', 'Our Offers:', 'عروضنا:')}
             </h3>
-            <ul className="space-y-1.5 sm:space-y-2.5 text-[12px] sm:text-[13.5px] text-[#283B66]">
+            <ul className="space-y-2 sm:space-y-3 text-[13px] sm:text-[15px] lg:text-[16px] text-[#283B66]">
               {INSURANCE_SOLUTIONS.map((sol) => (
                 <li key={sol.id}>
                   <button
@@ -112,10 +112,10 @@ export default function SecondFooter({
 
           {/* Column 2: Déclarer un sinistre */}
           <div data-gsap-item>
-            <h3 className="text-[13.5px] sm:text-[15px] font-bold text-[#142554] mb-2.5 sm:mb-4">
+            <h3 className="text-[15px] sm:text-[17px] lg:text-[18px] font-bold text-[#142554] mb-3 sm:mb-5">
               {t3(lang, 'Déclarer un sinistre :', 'Report a Claim:', 'التصريح بحادث:')}
             </h3>
-            <ul className="space-y-1.5 sm:space-y-2.5 text-[12px] sm:text-[13.5px] text-[#283B66]">
+            <ul className="space-y-2 sm:space-y-3 text-[13px] sm:text-[15px] lg:text-[16px] text-[#283B66]">
               <li>
                 <button
                   type="button"
@@ -158,10 +158,10 @@ export default function SecondFooter({
 
           {/* Column 3: Aide et assistance */}
           <div data-gsap-item>
-            <h3 className="text-[13.5px] sm:text-[15px] font-bold text-[#142554] mb-2.5 sm:mb-4">
+            <h3 className="text-[15px] sm:text-[17px] lg:text-[18px] font-bold text-[#142554] mb-3 sm:mb-5">
               {t3(lang, 'Aide et assistance :', 'Help & Assistance:', 'المساعدة والدعم:')}
             </h3>
-            <ul className="space-y-1.5 sm:space-y-2.5 text-[12px] sm:text-[13.5px] text-[#283B66]">
+            <ul className="space-y-2 sm:space-y-3 text-[13px] sm:text-[15px] lg:text-[16px] text-[#283B66]">
               <li>
                 <Link
                   href={`/${lang}/conseils`}
@@ -213,7 +213,7 @@ export default function SecondFooter({
 
           {/* Column 4: Suivez-nous */}
           <div data-gsap-item>
-            <h3 className="text-[13.5px] sm:text-[15px] font-bold text-[#142554] mb-2.5 sm:mb-4">
+            <h3 className="text-[15px] sm:text-[17px] lg:text-[18px] font-bold text-[#142554] mb-3 sm:mb-5">
               {t3(lang, 'Suivez-nous', 'Follow Us', 'تابعونا')}
             </h3>
             <div className="flex items-center gap-2.5 sm:gap-3.5">
@@ -226,9 +226,9 @@ export default function SecondFooter({
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={social.label}
-                    className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-[#697BB0]/12 hover:bg-[#142554] text-[#697BB0] hover:text-[#F4CB64] flex items-center justify-center transition-colors duration-200"
+                    className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-[#697BB0]/12 hover:bg-[#142554] text-[#697BB0] hover:text-[#F4CB64] flex items-center justify-center transition-colors duration-200"
                   >
-                    <Icon className="w-4 h-4 sm:w-[18px] sm:h-[18px]" aria-hidden="true" />
+                    <Icon className="w-[18px] h-[18px] sm:w-5 sm:h-5" aria-hidden="true" />
                   </a>
                 );
               })}
@@ -239,7 +239,7 @@ export default function SecondFooter({
         {/* Bottom Subtle Divider & Legal Regulatory Notice */}
         <div
           data-gsap-reveal
-          className="mt-5 sm:mt-8 pt-3 sm:pt-5 border-t border-[#E6ECF5] flex flex-col sm:flex-row items-center justify-between gap-1.5 sm:gap-2 text-[11px] sm:text-[12px] text-[#5B6E99]"
+          className="mt-8 sm:mt-12 pt-4 sm:pt-6 border-t border-[#E6ECF5] flex flex-col sm:flex-row items-center justify-between gap-2 sm:gap-3 text-[12px] sm:text-[14px] text-[#5B6E99]"
         >
           <span data-gsap-item>
             {t3(

@@ -220,14 +220,9 @@ html[lang='ar'] [style*='--font-serif-brand'] {
 
   @media (prefers-reduced-motion: no-preference) {
     /* Full brand logo pops in at open and fades out softly on both desktop and mobile */
-    .site-footer-intro-crest,
-    .site-footer-intro-partner {
+    .site-footer-intro-crest {
       animation: footer-intro-logo-pop 0.5s cubic-bezier(0.22, 1, 0.36, 1)
         0.1s both;
-    }
-
-    .site-footer-intro-partner {
-      animation-delay: 0.34s;
     }
 
     .site-footer-intro-logo {
@@ -265,7 +260,7 @@ html[lang='ar'] [style*='--font-serif-brand'] {
     /* Mobile: footer sits directly at its compact resting height with zero background color behind it */
     @media (max-width: 1023px) {
       .site-footer-root {
-        height: 88px !important;
+        height: 104px !important;
         background: transparent !important;
       }
 

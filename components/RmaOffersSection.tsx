@@ -90,17 +90,8 @@ export default function AmekranOffersSection({
     <section
       id="offres-rma"
       aria-labelledby="offres-rma-title"
-      className="relative z-10 scroll-mt-28 overflow-hidden bg-[linear-gradient(180deg,#FFFFFF_0%,#F4F8FE_38%,#EEF4FC_100%)] py-16 sm:py-20 lg:py-24"
+      className="relative z-10 scroll-mt-28 overflow-hidden bg-[#F4F8FE] py-16 sm:py-20 lg:py-24"
     >
-      {/* Decorative ribbons */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 overflow-hidden"
-      >
-        <div className="absolute -right-52 -top-40 h-[380px] w-[780px] rotate-[7deg] rounded-[50%] bg-[#E8F1FB]/80" />
-        <div className="absolute -left-56 bottom-10 h-[360px] w-[720px] rotate-[-6deg] rounded-[50%] bg-[#EDF4FD]/70" />
-      </div>
-
       <div className="relative z-10 mx-auto w-full max-w-[1220px] px-4 sm:px-6 lg:px-8">
         <SectionHeading
           id="offres-rma-title"

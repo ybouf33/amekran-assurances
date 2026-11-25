@@ -12,8 +12,10 @@ import RmaOffersSection from '@/components/RmaOffersSection';
 import TrustAndFooter, {
   TrustPillarsStrip,
 } from '@/components/TrustAndFooter';
+import FloatingContactWidget from '@/components/FloatingContactWidget';
 import ClientPortalSection from '@/components/ClientPortalSection';
 import AmekranBenefitsSection from '@/components/AmekranBenefitsSection';
+import WhyChoosePoidsLourdsSection from '@/components/WhyChoosePoidsLourdsSection';
 import ContactSection from '@/components/ContactSection';
 import SecondFooter from '@/components/SecondFooter';
 import ScrollEffects from '@/components/ScrollEffects';
@@ -187,13 +189,17 @@ export default function AmekranLanding({
           initial={false}
           animate={{
             height: headerHidden ? 0 : 'auto',
-            y: headerHidden ? -80 : 0,
+            y: headerHidden ? -64 : 0,
             opacity: headerHidden ? 0 : 1,
           }}
           transition={{
-            height: { duration: 0.44, ease: [0.22, 1, 0.36, 1] },
-            y: { duration: 0.44, ease: [0.22, 1, 0.36, 1] },
-            opacity: { duration: 0.3, ease: 'easeOut' },
+            height: { duration: 0.5, ease: [0.22, 1, 0.36, 1] },
+            y: { duration: 0.5, ease: [0.22, 1, 0.36, 1] },
+            opacity: {
+              duration: headerHidden ? 0.3 : 0.42,
+              ease: headerHidden ? [0.4, 0, 1, 1] : [0.16, 1, 0.3, 1],
+              delay: headerHidden ? 0 : 0.06,
+            },
           }}
           aria-hidden={headerHidden}
           className={headerHidden ? 'overflow-hidden pointer-events-none' : 'z-[60] relative'}
@@ -244,6 +250,7 @@ export default function AmekranLanding({
         />
         <TrustPillarsStrip lang={lang} />
         <SpecialOffersSection lang={lang} onOpenContact={handleOpenContactSection} />
+        <WhyChoosePoidsLourdsSection lang={lang} />
         <RmaOffersSection lang={lang} onOpenContact={handleOpenContactSection} />
         <ClientPortalSection
           lang={lang}
@@ -261,6 +268,7 @@ export default function AmekranLanding({
         onOpenContact={handleOpenContactSection}
       />
 
+      <FloatingContactWidget lang={lang} />
       <TrustAndFooter lang={lang} />
 
       <ScrollEffects active={sectionsReady} />
